@@ -1,31 +1,9 @@
 {
-  "controller": {"PlayerController": {"player": {"Player": {
-    "m_Movement": {"Movement": {
-      "parent": {"Actor": {}},
-      "moveTime": {"Timer": {
-        "duration": 1.5,
-        "elapsed": 0,
-        "autoRestart": false,
-        "paused": false,
-        "onTickCallback": {"Callback": {
-          "arg$2": {"Actor": {}},
-          "arg$1": {"Movement": {}}
-        }},
-        "isDone": true,
-        "onFinishedCallback": {"Callback": {"arg$1": {"Movement": {}}}},
-        "timeLeft": 1.5
-      }},
-      "isMoving": false,
-      "moveAmount": {"PVector": {
-        "array": {"[F": {}},
-        "x": 0,
-        "y": 0,
-        "z": 0
-      }},
-      "newLocation": {"PVector": {}}
-    }},
-    "m_Rect": {"Rect": {
+  "controller": {"YoinkTD$PlayerController": {"player": {"YoinkTD$Player": {
+    "m_Movement": {"YoinkTD$Movement": {}},
+    "m_Rect": {"YoinkTD$Rect": {
       "edgeL": -16,
+      "parent": {"YoinkTD$Actor": {}},
       "halfH": 16,
       "halfW": 16,
       "w": 32,
@@ -36,23 +14,22 @@
       "edgeR": 16,
       "edgeB": 16
     }},
-    "rotation": {"PVector": {}},
-    "scale": {"PVector": {
+    "location": {"PVector": {
       "array": {"[F": {}},
-      "x": 1,
-      "y": 1,
-      "z": 1
-    }},
-    "location": {"PVector": {}}
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }}
   }}}},
-  "test": {"Timer": {
+  "test": {"YoinkTD$Timer": {
     "duration": 1,
     "elapsed": 0,
     "autoRestart": true,
+    "parent": {"YoinkTD$Actor": {}},
     "paused": false,
-    "onTickCallback": {"Callback": {}},
+    "onTickCallback": {"YoinkTD$Callback": {}},
     "isDone": false,
-    "onFinishedCallback": {"Callback": {}},
+    "onFinishedCallback": {"YoinkTD$Callback": {}},
     "timeLeft": 1
   }}
 }

@@ -6,7 +6,8 @@ class Movement extends Component {
   PVector newLocation;
   boolean isMoving = false;
   
-  Movement(Actor parent) {
+  
+  Movement(Player parent) {
     name = "movement";
     
     
@@ -27,6 +28,7 @@ class Movement extends Component {
       moveTime.reset();
       return null;
     };
+    
   }
 
   void update(){ 

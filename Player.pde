@@ -1,17 +1,17 @@
 class Player extends Actor {
   
-  Movement m_Movement = new Movement(this);
+  Movement m_Movement = (Movement) addComponent("Movement");
   Rect m_Rect;
   
   Player(){ 
     name = "player";
     location = new PVector(0,0);
     m_Rect = new Rect(location.x, location.y, 32, 32);
+    
   }
   
   void update(){
   
-    m_Movement.update();
     m_Rect.update();
     for (Component c : components) c.update();
     

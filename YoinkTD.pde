@@ -8,6 +8,8 @@ float dt, prevTime = 0.0;
 float elapsed = 0.0;
 // TIMESTEP
 
+YoinkTD applet = this; // I need this for Constructor class method newInstance(applet, ... (other parameters);
+
 boolean paused = false;
 
 Level test;
@@ -88,10 +90,10 @@ public class JSONSerializer {
       try {
         field.setAccessible(true); 
         Class<?> fieldType = field.getType();
-        if (field.isSynthetic()) continue;
+        if (field.isSynthetic()) continue; // this skips over java created fields
         if (isUserDefinedClass(fieldType)) {
           JSONObject subobject = new JSONObject();
-          println(field.getName() + ", " + cleanName(fieldType.getName()) + ", " + ((field.get(o) != null) ? cleanName(field.get(o).toString()) : "null"));
+          //println(field.getName() + ", " + cleanName(fieldType.getName()) + ", " + ((field.get(o) != null) ? cleanName(field.get(o).toString()) : "null"));
           contents.setJSONObject(field.getName(), subobject.setJSONObject(cleanName(fieldType.getName()), serializeObject(field.get(o))));
         } else {
           switch (fieldType.getName()) {
@@ -132,7 +134,7 @@ public class JSONSerializer {
   String cleanName(String name) {
   
     if (name.startsWith("processing.core.")) return name.substring(16);
-    if (name.startsWith("YoinkTD")) return name.substring(8);
+    if (name.startsWith("YoinkTD$")) return name.substring(0);
     return name;
   }
 }
