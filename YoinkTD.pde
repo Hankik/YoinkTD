@@ -2,11 +2,15 @@ import java.lang.reflect.*;
 import java.util.*;
 import java.util.HashSet;
 import java.util.Set;
+import java.lang.ref.WeakReference;
 
 // TIMESTEP //
 float dt, prevTime = 0.0;
 float elapsed = 0.0;
 // TIMESTEP
+
+// Tile Globals //
+final float TILE_SIZE = 32;
 
 YoinkTD applet = this; // I need this for Constructor class method newInstance(applet, ... (other parameters);
 
@@ -115,6 +119,25 @@ public class JSONSerializer {
           default:
             if (field.isEnumConstant()) contents.setString(field.getName(), (String) field.get(o));
             // Add additional handling for other types if needed
+            String javaObjectType = fieldType.getName().substring(fieldType.getName().lastIndexOf('.') + 1);
+            switch (javaObjectType) {
+            
+              case "String":
+              println("Found string");
+              break;
+              
+              case "ArrayList":
+                ArrayList<?> arrayList = (ArrayList<?>) field.get(o);
+                JSONArray arrayContents = new JSONArray();
+                if (arrayList != null) {
+                    for (Object element : arrayList) {
+                        JSONObject subobject = serializeObject(element);
+                        arrayContents.append(subobject);
+                    }
+                }
+                contents.setJSONArray(field.getName(), arrayContents);
+                break;
+            }
             break;
           }
         }
@@ -138,3 +161,8 @@ public class JSONSerializer {
     return name;
   }
 }
+
+//Level loadLevelFromJSON(JSONObject json) {
+
+//  Level level = new Level();
+//}

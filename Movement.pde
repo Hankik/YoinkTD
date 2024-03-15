@@ -7,7 +7,7 @@ class Movement extends Component {
   boolean isMoving = false;
   
   
-  Movement(Player parent) {
+  Movement(Actor parent) {
     name = "movement";
     
     

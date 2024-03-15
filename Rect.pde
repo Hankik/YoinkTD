@@ -1,8 +1,17 @@
 class Rect extends Component {
 
   float x, y, w, h;
+  PVector localPosition = new PVector();
   float edgeL, edgeR, edgeT, edgeB;
   float halfW, halfH;
+  
+  Rect(Actor parent){
+  
+    this.parent = parent;
+    setPosition(parent.location);
+    setSize(TILE_SIZE, TILE_SIZE);
+    calculateAABB();
+  }
 
   Rect(float x, float y, float w, float h) {
 
@@ -15,8 +24,8 @@ class Rect extends Component {
   
   void setPosition(PVector newLocation){
   
-    x = newLocation.x;
-    y = newLocation.y;
+    x = newLocation.x + localPosition.x;
+    y = newLocation.y + localPosition.y;
   }
 
   void setSize(float w, float h) {
@@ -45,6 +54,8 @@ class Rect extends Component {
   }
 
   void update() {
+    
+    setPosition(parent.location);
     calculateAABB();
   }
 

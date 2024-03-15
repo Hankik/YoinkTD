@@ -1,6 +1,52 @@
 {
+  "actors": [{
+    "components": [{}],
+    "location": {"PVector": {}},
+    "hitbox": {"YoinkTD$Rect": {
+      "edgeL": -16,
+      "parent": {"YoinkTD$Actor": {}},
+      "halfH": 16,
+      "halfW": 16,
+      "w": 32,
+      "x": 0,
+      "h": 32,
+      "y": 0,
+      "edgeT": -16,
+      "localPosition": {"PVector": {}},
+      "edgeR": 16,
+      "edgeB": 16
+    }}
+  }],
   "controller": {"YoinkTD$PlayerController": {"player": {"YoinkTD$Player": {
-    "m_Movement": {"YoinkTD$Movement": {}},
+    "components": [
+      {},
+      {}
+    ],
+    "m_Movement": {"YoinkTD$Movement": {
+      "parent": {"YoinkTD$Actor": {}},
+      "moveTime": {"YoinkTD$Timer": {
+        "duration": 1.5,
+        "elapsed": 0,
+        "autoRestart": false,
+        "parent": {"YoinkTD$Actor": {}},
+        "paused": false,
+        "onTickCallback": {"YoinkTD$Callback": {
+          "arg$2": {"YoinkTD$Actor": {}},
+          "arg$1": {"YoinkTD$Movement": {}}
+        }},
+        "isDone": true,
+        "onFinishedCallback": {"YoinkTD$Callback": {"arg$1": {"YoinkTD$Movement": {}}}},
+        "timeLeft": 1.5
+      }},
+      "isMoving": false,
+      "moveAmount": {"PVector": {
+        "array": {"[F": {}},
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }},
+      "newLocation": {"PVector": {}}
+    }},
     "m_Rect": {"YoinkTD$Rect": {
       "edgeL": -16,
       "parent": {"YoinkTD$Actor": {}},
@@ -11,25 +57,10 @@
       "h": 32,
       "y": 0,
       "edgeT": -16,
+      "localPosition": {"PVector": {}},
       "edgeR": 16,
       "edgeB": 16
     }},
-    "location": {"PVector": {
-      "array": {"[F": {}},
-      "x": 0,
-      "y": 0,
-      "z": 0
-    }}
-  }}}},
-  "test": {"YoinkTD$Timer": {
-    "duration": 1,
-    "elapsed": 0,
-    "autoRestart": true,
-    "parent": {"YoinkTD$Actor": {}},
-    "paused": false,
-    "onTickCallback": {"YoinkTD$Callback": {}},
-    "isDone": false,
-    "onFinishedCallback": {"YoinkTD$Callback": {}},
-    "timeLeft": 1
-  }}
+    "location": {"PVector": {}}
+  }}}}
 }
