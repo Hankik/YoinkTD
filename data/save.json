@@ -1,66 +1,71 @@
-{
-  "actors": [{
-    "components": [{}],
-    "location": {"PVector": {}},
-    "hitbox": {"YoinkTD$Rect": {
-      "edgeL": -16,
-      "parent": {"YoinkTD$Actor": {}},
-      "halfH": 16,
+{"Level": {
+  "actors": [{"Tile": {
+    "components": [{"Rect": {
+      "parent": {},
       "halfW": 16,
+      "h": 32,
+      "edgeT": -16,
+      "localPosition": {},
+      "edgeR": 16,
+      "edgeL": -16,
+      "halfH": 16,
       "w": 32,
       "x": 0,
-      "h": 32,
+      "name": "rect",
       "y": 0,
-      "edgeT": -16,
-      "localPosition": {"PVector": {}},
-      "edgeR": 16,
       "edgeB": 16
-    }}
-  }],
-  "controller": {"YoinkTD$PlayerController": {"player": {"YoinkTD$Player": {
+    }}],
+    "name": "tile",
+    "location": {}
+  }}],
+  "controller": {"PlayerController": {"player": {"Player": {
     "components": [
       {},
       {}
     ],
-    "m_Movement": {"YoinkTD$Movement": {
-      "parent": {"YoinkTD$Actor": {}},
-      "moveTime": {"YoinkTD$Timer": {
+    "m_Movement": {"Movement": {
+      "parent": {},
+      "moveTime": {"Timer": {
         "duration": 1.5,
         "elapsed": 0,
         "autoRestart": false,
-        "parent": {"YoinkTD$Actor": {}},
+        "parent": {},
         "paused": false,
-        "onTickCallback": {"YoinkTD$Callback": {
-          "arg$2": {"YoinkTD$Actor": {}},
-          "arg$1": {"YoinkTD$Movement": {}}
+        "onTickCallback": {"Movement$$Lambda$133/0x000002b4430c5e68": {
+          "arg$2": {},
+          "arg$1": {}
         }},
+        "name": "component",
         "isDone": true,
-        "onFinishedCallback": {"YoinkTD$Callback": {"arg$1": {"YoinkTD$Movement": {}}}},
+        "onFinishedCallback": {"Movement$$Lambda$134/0x000002b4430c6088": {"arg$1": {}}},
         "timeLeft": 1.5
       }},
       "isMoving": false,
+      "name": "movement",
       "moveAmount": {"PVector": {
-        "array": {"[F": {}},
+        "array": {},
         "x": 0,
         "y": 0,
         "z": 0
       }},
-      "newLocation": {"PVector": {}}
+      "newLocation": {}
     }},
-    "m_Rect": {"YoinkTD$Rect": {
-      "edgeL": -16,
-      "parent": {"YoinkTD$Actor": {}},
-      "halfH": 16,
+    "m_Rect": {"Rect": {
+      "parent": {},
       "halfW": 16,
+      "h": 32,
+      "edgeT": -16,
+      "localPosition": {},
+      "edgeR": 16,
+      "edgeL": -16,
+      "halfH": 16,
       "w": 32,
       "x": 0,
-      "h": 32,
+      "name": "rect",
       "y": 0,
-      "edgeT": -16,
-      "localPosition": {"PVector": {}},
-      "edgeR": 16,
       "edgeB": 16
     }},
-    "location": {"PVector": {}}
+    "name": "player",
+    "location": {}
   }}}}
-}
+}}

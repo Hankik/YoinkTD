@@ -76,6 +76,7 @@ public class JSONSerializer {
   }
 
   private JSONObject serializeObject(Object o) {
+    JSONObject object = new JSONObject();
     JSONObject contents = new JSONObject();
     if (o == null) return contents;
     if (visitedObjects.contains(o)) {
@@ -92,13 +93,18 @@ public class JSONSerializer {
 
     for (Field field : extFields) {
       try {
-        field.setAccessible(true); 
+        field.setAccessible(true);
         Class<?> fieldType = field.getType();
+        
         if (field.isSynthetic()) continue; // this skips over java created fields
+        
+        Object fieldValue = field.get(o);
+        
         if (isUserDefinedClass(fieldType)) {
-          JSONObject subobject = new JSONObject();
-          //println(field.getName() + ", " + cleanName(fieldType.getName()) + ", " + ((field.get(o) != null) ? cleanName(field.get(o).toString()) : "null"));
-          contents.setJSONObject(field.getName(), subobject.setJSONObject(cleanName(fieldType.getName()), serializeObject(field.get(o))));
+          
+          JSONObject subobject = serializeObject(fieldValue);
+          contents.setJSONObject(field.getName(), subobject);
+          
         } else {
           switch (fieldType.getName()) {
             case "boolean":
@@ -118,15 +124,17 @@ public class JSONSerializer {
             break;
           default:
             if (field.isEnumConstant()) contents.setString(field.getName(), (String) field.get(o));
+            
             // Add additional handling for other types if needed
             String javaObjectType = fieldType.getName().substring(fieldType.getName().lastIndexOf('.') + 1);
             switch (javaObjectType) {
             
               case "String":
-              println("Found string");
+                contents.setString(field.getName(), (String) field.get(o));
               break;
               
               case "ArrayList":
+                //if (field.getName().equals("components")) continue;
                 ArrayList<?> arrayList = (ArrayList<?>) field.get(o);
                 JSONArray arrayContents = new JSONArray();
                 if (arrayList != null) {
@@ -146,7 +154,8 @@ public class JSONSerializer {
         e.printStackTrace(); // Handle exceptions appropriately
       }
     }
-    return contents;
+    object.setJSONObject(cleanName(o.getClass().getName()), contents);
+    return object;
   }
 
   private boolean isUserDefinedClass(Class<?> type) {
@@ -157,7 +166,7 @@ public class JSONSerializer {
   String cleanName(String name) {
   
     if (name.startsWith("processing.core.")) return name.substring(16);
-    if (name.startsWith("YoinkTD$")) return name.substring(0);
+    if (name.startsWith("YoinkTD$")) return name.substring(8);
     return name;
   }
 }

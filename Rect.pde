@@ -6,6 +6,7 @@ class Rect extends Component {
   float halfW, halfH;
   
   Rect(Actor parent){
+    name = "rect";
   
     this.parent = parent;
     setPosition(parent.location);
@@ -64,7 +65,7 @@ class Rect extends Component {
     rectMode(CENTER);
     noFill();
     stroke(255);
-    rect(x, y, w, h, 1);
+    rect(x, y, w, h, 10);
   }
 
   //

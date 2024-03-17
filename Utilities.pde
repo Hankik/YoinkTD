@@ -9,6 +9,15 @@ class Timer extends Component {
   Callback onTickCallback = () -> { return true; };
   Callback onFinishedCallback = () -> {  return true;};
   
+  Timer(Actor parent){
+  
+    name = "timer";
+    this.parent = parent;
+    duration = 1;
+    timeLeft = duration;
+    isDone = false;
+  }
+  
   Timer(float duration) {
   
     this.duration = duration;
