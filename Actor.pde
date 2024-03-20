@@ -1,6 +1,7 @@
 abstract class Actor implements Updates, Displays { // abstract means you cannot make an instance of this (only child instances)
 
   String name = "actor";
+  String id = UUID.randomUUID().toString();
   PVector location = new PVector(0, 0);
   ArrayList<Object> components = new ArrayList(); // do not add non-component types
 
@@ -95,9 +96,34 @@ abstract class Component implements Updates, Displays {
       println("Failed to add field " + name + ": " + e);
     }
   }
+}
 
-  boolean isUserDefinedClass(Class<?> type) {
-    // Exclude primitive types and common Java types
-    return !type.isPrimitive() && !type.getName().startsWith("java");
+Actor createActor(String name) {
+
+  try {
+    // Load class
+    Class type = Class.forName("YoinkTD$" + name);
+
+    // Check if the class is a subclass of Component
+    if (Actor.class.isAssignableFrom(type)) {
+
+
+      // Get parameter types
+      Class[]  parameterTypes = {YoinkTD.class};
+
+      // ------------------------------- type.getBlahBlah( requires we pass in the parameter signature to find the constructor we want ).newInstance( pass in those arguments now );
+      Actor actor = (Actor) type.getDeclaredConstructor(parameterTypes).newInstance(applet); // all constructors have a hidden YoinkTD.class instance passed in
+      return actor;
+    } else {
+      println(name + " is not an actor.");
+    }
   }
+  catch (ClassNotFoundException e) {
+    println("Could not find actor class: " + e);
+  }
+  catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+    println("Error instantiating actor: " + e);
+  }
+  
+  return null;
 }

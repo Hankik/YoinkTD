@@ -15,10 +15,10 @@
       "y": 0,
       "edgeB": 16
     }}],
-    "heldItem": "4bd57b77-06e7-4550-9ded-d344ebfbd738",
+    "heldItem": "8f48852b-8c1e-4962-817e-450b60d026a2",
     "name": "tile",
     "location": {},
-    "id": "1637cece-255f-48fb-bb8d-a3077d24b002"
+    "id": "cbcbd489-156f-404d-8422-59484372be29"
   }}],
   "controller": {"PlayerController": {"player": {"Player": {
     "components": [
@@ -64,6 +64,6 @@
     }},
     "name": "player",
     "location": {},
-    "id": "4bd57b77-06e7-4550-9ded-d344ebfbd738"
+    "id": "8f48852b-8c1e-4962-817e-450b60d026a2"
   }}}}
 }}

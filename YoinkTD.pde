@@ -3,6 +3,7 @@ import java.util.*;
 import java.util.HashSet;
 import java.util.Set;
 import java.lang.ref.WeakReference;
+import java.util.UUID;
 
 // TIMESTEP //
 float dt, prevTime = 0.0;
@@ -29,6 +30,9 @@ void setup() {
   JSONSerializer serializer = new JSONSerializer();
   JSONObject json = serializer.getContents(test);
   saveJSONObject(json, "data/save.json");
+  Level deserializable = createLevel(json);
+  JSONObject json2 = serializer.getContents(deserializable);
+  saveJSONObject(json2, "data/save2.json");
 }
 
 void draw() {
@@ -102,6 +106,10 @@ public class JSONSerializer {
         
         if (isUserDefinedClass(fieldType)) {
           
+          if (Actor.class.isAssignableFrom(fieldType) && field.get(o) != null) contents.setString(field.getName(), ((Actor) field.get(o)).id);
+          
+          if (field.getName().contains("Callback")) continue;
+          
           JSONObject subobject = serializeObject(fieldValue);
           contents.setJSONObject(field.getName(), subobject);
           
@@ -145,6 +153,12 @@ public class JSONSerializer {
                 }
                 contents.setJSONArray(field.getName(), arrayContents);
                 break;
+              case "WeakReference": // im going to assume its an actor
+                WeakReference weakRef = (WeakReference) field.get(o);
+                Actor actor = null;
+                if (weakRef != null) actor = (Actor) weakRef.get();
+                if (actor != null) contents.setString(field.getName(), actor.id );
+                break;
             }
             break;
           }
@@ -157,11 +171,6 @@ public class JSONSerializer {
     object.setJSONObject(cleanName(o.getClass().getName()), contents);
     return object;
   }
-
-  private boolean isUserDefinedClass(Class<?> type) {
-    // Exclude primitive types and common Java types
-    return !type.isPrimitive() && !type.getName().startsWith("java");
-  }
   
   String cleanName(String name) {
   
@@ -171,7 +180,126 @@ public class JSONSerializer {
   }
 }
 
-//Level loadLevelFromJSON(JSONObject json) {
+//Level createLevelFromJSON(JSONObject json){
 
 //  Level level = new Level();
+//  JSONObject levelContents = (JSONObject) json.get("Level");
+  
+//  for (String key : levelContents.keys()) {
+  
+//  }
+  
+  
 //}
+
+Level createLevel(JSONObject json) {
+   
+  Level level = new Level();
+  
+  // Get all keys
+  Set currentKeys = json.keys();
+  JSONObject currentObject = json;
+    for (Object key : currentKeys) {
+      // Get value based on key
+      Object value = currentObject.get((String) key);
+    
+      // Check if the value is a JSONObject
+      if (value instanceof JSONObject) {
+        
+        Class type = null;
+        try { type = Class.forName("YoinkTD$" + key); } 
+        catch(Exception e) { println(e); }
+        if (type != null) {
+          if (Actor.class.isAssignableFrom(type)) {
+            Actor actor = createActor((String) key);
+            populateActorFields(actor, (JSONObject) value);
+          }
+        }
+        
+      } 
+      // Check if the value is a JSONArray
+      else if (value instanceof JSONArray) {
+        println(key + ": JSONArray");
+        // Handle JSONArray if needed
+      } 
+      // Otherwise, it's a primitive value
+      else {
+        println(key + ": " + value.getClass().getSimpleName());
+      }
+  }
+  
+  return level;
+}
+
+void populateActorFields(Actor actor, JSONObject json){
+  
+    Field[] fields = actor.getClass().getDeclaredFields();
+    List<Field> extFields = new ArrayList<>(Arrays.asList(fields));
+    List<Field> superFields = Arrays.asList(actor.getClass().getSuperclass().getDeclaredFields()); 
+    extFields.addAll( superFields );
+    
+    for (Field field : extFields) {
+      try {
+        field.setAccessible(true);
+        Class<?> fieldType = field.getType();
+        
+        if (field.isSynthetic()) continue; // this skips over java created fields
+        
+        if (isUserDefinedClass(fieldType)) {
+          
+          if (Actor.class.isAssignableFrom(fieldType) && field.get(actor) != null) {} // we have an actor id
+          
+          if (field.getName().contains("Callback")) continue;
+          
+          // we have a userdefined field
+          
+        } else {
+          switch (fieldType.getName()) {
+            case "boolean":
+              field.set(actor, json.get(field.getName()));
+            break;
+          case "int":
+            field.set(actor, json.get(field.getName()));
+            break;
+          case "float":
+            field.set(actor, json.get(field.getName()));
+            break;
+          case "double":
+            field.set(actor, json.get(field.getName()));
+            break;
+          case "long":
+            field.set(actor, json.get(field.getName()));
+            break;
+          default:
+            if (field.isEnumConstant()) {} // is enum
+            
+            // Add additional handling for other types if needed
+            String javaObjectType = fieldType.getName().substring(fieldType.getName().lastIndexOf('.') + 1);
+            switch (javaObjectType) {
+            
+              case "String":
+              field.set(actor, json.get(field.getName()));
+              break;
+              
+              case "ArrayList":
+                //if (field.getName().equals("components")) continue;
+                ArrayList<?> arrayList = (ArrayList<?>) field.get(actor);
+                break;
+              case "WeakReference": // im going to assume its an actor
+                break;
+            }
+            break;
+          }
+        }
+      }
+      catch (Exception e) {
+        e.printStackTrace(); // Handle exceptions appropriately
+      }
+    }
+  
+}
+
+boolean isUserDefinedClass(Class<?> type) {
+  // Exclude primitive types and common Java types
+  return !type.isPrimitive() && !type.getName().startsWith("java");
+}
