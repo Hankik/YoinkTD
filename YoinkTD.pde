@@ -10,25 +10,33 @@ float dt, prevTime = 0.0;
 float elapsed = 0.0;
 // TIMESTEP
 
-// Tile Globals //
+// TILE GLOBALS //
 final float TILE_SIZE = 32;
+// TILE GLOBALS // 
 
-YoinkTD applet = this; // I need this for Constructor class method newInstance(applet, ... (other parameters);
+// LEVEL GLOBALS //
+final int LEVEL_AMOUNT = 1;
+Level[] levels = new Level[LEVEL_AMOUNT];
+int currentLevel = 0;
+// LEVEL GLOBALS //
+
+YoinkTD applet = this; // I need this for the Constructor class method newInstance(applet, ... (other parameters);
 
 boolean paused = false;
 
-Level test;
-
 void setup() {
+  
   surface.setTitle("YoinkTD");
   surface.setResizable(false);
   size(1280, 720);
   frameRate(60);
-
-  test = new Level();
+  
+  for (int i = 0; i < LEVEL_AMOUNT; i++){
+    levels[i] = new Level();
+  }
 
   JSONSerializer serializer = new JSONSerializer();
-  JSONObject json = serializer.getContents(test);
+  JSONObject json = serializer.getContents(levels[0]);
   saveJSONObject(json, "data/save.json");
   Level deserializable = createLevel(json);
   JSONObject json2 = serializer.getContents(deserializable);
@@ -44,28 +52,28 @@ void draw() {
   prevTime = currTime;
   
   elapsed += dt;
-  if (!paused) test.update();
+  if (!paused) levels[currentLevel].update();
   
-  test.display();
+  levels[currentLevel].display();
 }
 
 void mousePressed(){
-  test.mousePressed();
+  levels[currentLevel].mousePressed();
 }
 
 void mouseReleased(){
-  test.mouseReleased();
+  levels[currentLevel].mouseReleased();
 }
 
 void keyPressed(){
   Keyboard.handleKeyDown(keyCode);
-  test.keyPressed();
+  levels[currentLevel].keyPressed();
 }
 
 
 void keyReleased(){
   Keyboard.handleKeyUp(keyCode);
-  test.keyReleased();
+  levels[currentLevel].keyReleased();
   if (key == 'p') paused = !paused;
 }
 
@@ -144,14 +152,13 @@ public class JSONSerializer {
               case "ArrayList":
                 //if (field.getName().equals("components")) continue;
                 ArrayList<?> arrayList = (ArrayList<?>) field.get(o);
-                JSONArray arrayContents = new JSONArray();
                 if (arrayList != null) {
                     for (Object element : arrayList) {
                         JSONObject subobject = serializeObject(element);
-                        arrayContents.append(subobject);
+                        String elementType = cleanName(element.getClass().getName());
+                        contents.setJSONObject(elementType, (JSONObject) subobject.get(elementType));
                     }
                 }
-                contents.setJSONArray(field.getName(), arrayContents);
                 break;
               case "WeakReference": // im going to assume its an actor
                 WeakReference weakRef = (WeakReference) field.get(o);
@@ -190,42 +197,38 @@ public class JSONSerializer {
 //  }
   
   
-//}
+//
+
 
 Level createLevel(JSONObject json) {
    
   Level level = new Level();
   
-  // Get all keys
-  Set currentKeys = json.keys();
-  JSONObject currentObject = json;
-    for (Object key : currentKeys) {
+    for (Object key : json.keys()) {
       // Get value based on key
-      Object value = currentObject.get((String) key);
-    
-      // Check if the value is a JSONObject
-      if (value instanceof JSONObject) {
+      Object value = (JSONObject) json.get((String) key);
+      
         
-        Class type = null;
-        try { type = Class.forName("YoinkTD$" + key); } 
-        catch(Exception e) { println(e); }
-        if (type != null) {
-          if (Actor.class.isAssignableFrom(type)) {
-            Actor actor = createActor((String) key);
-            populateActorFields(actor, (JSONObject) value);
-          }
+      Class type = null;
+      try { type = Class.forName("YoinkTD$" + key); } 
+      catch(Exception e) { println(e); }
+      if (type != null) {
+        if (Actor.class.isAssignableFrom(type)) {
+          Actor actor = createActor((String) key);
+          populateActorFields(actor, (JSONObject) value);
         }
-        
-      } 
-      // Check if the value is a JSONArray
-      else if (value instanceof JSONArray) {
-        println(key + ": JSONArray");
-        // Handle JSONArray if needed
-      } 
-      // Otherwise, it's a primitive value
-      else {
-        println(key + ": " + value.getClass().getSimpleName());
       }
+        
+       
+      //// Check if the value is a JSONArray
+      //else if (value instanceof JSONArray) {
+      //  println(key + ": JSONArray");
+      //  // Handle JSONArray if needed
+      //} 
+      //// Otherwise, it's a primitive value
+      //else {
+      //  println(key + ": " + value.getClass().getSimpleName());
+      //}
   }
   
   return level;
@@ -278,8 +281,24 @@ void populateActorFields(Actor actor, JSONObject json){
             switch (javaObjectType) {
             
               case "String":
-              field.set(actor, json.get(field.getName()));
-              break;
+                String foundString = json.get(field.getName()).toString();
+                println("found string");
+                if (foundString.matches("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")) { //uuid check
+                  println("found id");
+                  for (Level level : levels) {
+                  
+                    for (Object levelActor : level.actors) if ( ((Actor)levelActor).id.equals(foundString) ) {
+                      Level.SetFieldActorReferenceCommand setReference = level.new SetFieldActorReferenceCommand();
+                      setReference.referenceHolder = actor;
+                      setReference.referenceField = field;
+                      setReference.idToAdd = foundString;
+                      level.commands.add( setReference );
+                      return;
+                    }
+                  }
+                }
+                field.set(actor, json.get(field.getName()));
+                break;
               
               case "ArrayList":
                 //if (field.getName().equals("components")) continue;

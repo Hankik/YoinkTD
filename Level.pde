@@ -2,6 +2,7 @@ class Level implements Updates, Displays {
 
   PlayerController controller = new PlayerController();
   ArrayList<Object> actors = new ArrayList(); // do not add non-actor types
+  ArrayList<Command> commands = new ArrayList();
 
   Level() {
 
@@ -13,6 +14,11 @@ class Level implements Updates, Displays {
     controller.update();
     controller.player.update();
     update(actors);
+    
+    for (int i = commands.size() - 1; i >= 0; i--) {
+      commands.get(i).call();
+      commands.remove(i);
+    }
   }
 
   void display() {
@@ -47,4 +53,19 @@ class Level implements Updates, Displays {
     return actor;
   }
   
+  class SetFieldActorReferenceCommand implements Command {
+    
+    Actor referenceHolder = null;
+    Field referenceField = null;
+    String idToAdd = null;
+
+    void call(){
+        // find actor with uuid
+      for (Object a : actors) if (((Actor)a).id.equals(idToAdd)) { // naive search that sucks
+        try { referenceField.set(referenceHolder, a); } 
+        catch(Exception e) {println(e);}
+        return;
+      }
+    }
+  }
 }

@@ -29,3 +29,8 @@ interface Callback<T> {
 
   abstract T call();  
 }
+
+interface Command {
+
+  abstract void call();
+}

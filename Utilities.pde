@@ -1,3 +1,5 @@
+
+
 class Timer extends Component {
 
   float duration;

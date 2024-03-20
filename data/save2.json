@@ -1,30 +1,5 @@
 {"Level": {
-  "actors": [{"Tile": {
-    "components": [{"Rect": {
-      "parent": {},
-      "halfW": 16,
-      "h": 32,
-      "edgeT": -16,
-      "localPosition": {},
-      "edgeR": 16,
-      "edgeL": -16,
-      "halfH": 16,
-      "w": 32,
-      "x": 0,
-      "name": "rect",
-      "y": 0,
-      "edgeB": 16
-    }}],
-    "heldItem": "8f48852b-8c1e-4962-817e-450b60d026a2",
-    "name": "tile",
-    "location": {},
-    "id": "cbcbd489-156f-404d-8422-59484372be29"
-  }}],
   "controller": {"PlayerController": {"player": {"Player": {
-    "components": [
-      {},
-      {}
-    ],
     "m_Movement": {"Movement": {
       "parent": {},
       "moveTime": {"Timer": {
@@ -64,6 +39,27 @@
     }},
     "name": "player",
     "location": {},
-    "id": "8f48852b-8c1e-4962-817e-450b60d026a2"
-  }}}}
+    "id": "8a902a81-2319-45d7-a93c-b84a158d3a15"
+  }}}},
+  "Tile": {
+    "Rect": {
+      "parent": {},
+      "halfW": 16,
+      "h": 32,
+      "edgeT": -16,
+      "localPosition": {},
+      "edgeR": 16,
+      "edgeL": -16,
+      "halfH": 16,
+      "w": 32,
+      "x": 0,
+      "name": "rect",
+      "y": 0,
+      "edgeB": 16
+    },
+    "heldItem": "8a902a81-2319-45d7-a93c-b84a158d3a15",
+    "name": "tile",
+    "location": {},
+    "id": "4c9ae426-d3e9-4157-bb2b-b7eafa4743f2"
+  }
 }}
