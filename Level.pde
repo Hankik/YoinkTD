@@ -52,20 +52,4 @@ class Level implements Updates, Displays {
     }
     return actor;
   }
-  
-  class SetFieldActorReferenceCommand implements Command {
-    
-    Actor referenceHolder = null;
-    Field referenceField = null;
-    String idToAdd = null;
-
-    void call(){
-        // find actor with uuid
-      for (Object a : actors) if (((Actor)a).id.equals(idToAdd)) { // naive search that sucks
-        try { referenceField.set(referenceHolder, a); } 
-        catch(Exception e) {println(e);}
-        return;
-      }
-    }
-  }
 }

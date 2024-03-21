@@ -70,6 +70,20 @@ class Timer extends Component {
   }
 }
 
+class SetFieldReferenceCommand implements Command {
+    
+    Object referenceHolder = null;
+    Field referenceField = null;
+    Object referencedObject = null;
+
+    void call(){
+      // find actor with uuid
+      try { referenceField.set(referenceHolder, referencedObject); } 
+      catch(Exception e) {println(e);}
+      
+    }
+}
+
 float easeInOutQuad(float x) {
   return x < 0.5 ? 2 * x * x : 1 - pow(-2 * x + 2, 2) / 2;
 }

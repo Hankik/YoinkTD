@@ -53,6 +53,7 @@ abstract class Component implements Updates, Displays {
 
   String name = "component";
   Actor parent = null;
+  String id = UUID.randomUUID().toString();
   abstract void update();
   abstract void display();
 

@@ -1,28 +1,6 @@
 {"Level": {
-  "controller": {"PlayerController": {"player": {"Player": {
-    "m_Movement": {"Movement": {
-      "parent": {},
-      "moveTime": {"Timer": {
-        "duration": 1.5,
-        "elapsed": 0,
-        "autoRestart": false,
-        "parent": {},
-        "paused": false,
-        "name": "component",
-        "isDone": true,
-        "timeLeft": 1.5
-      }},
-      "isMoving": false,
-      "name": "movement",
-      "moveAmount": {"PVector": {
-        "array": {},
-        "x": 0,
-        "y": 0,
-        "z": 0
-      }},
-      "newLocation": {}
-    }},
-    "m_Rect": {"Rect": {
+  "actors": {"Tile": {
+    "components": {"Rect": {
       "parent": {},
       "halfW": 16,
       "h": 32,
@@ -35,31 +13,57 @@
       "x": 0,
       "name": "rect",
       "y": 0,
-      "edgeB": 16
+      "edgeB": 16,
+      "id": "df2e3296-ae80-42b8-8ad6-e239280cffda"
     }},
-    "name": "player",
-    "location": {},
-    "id": "8a902a81-2319-45d7-a93c-b84a158d3a15"
-  }}}},
-  "Tile": {
-    "Rect": {
-      "parent": {},
-      "halfW": 16,
-      "h": 32,
-      "edgeT": -16,
-      "localPosition": {},
-      "edgeR": 16,
-      "edgeL": -16,
-      "halfH": 16,
-      "w": 32,
-      "x": 0,
-      "name": "rect",
-      "y": 0,
-      "edgeB": 16
-    },
-    "heldItem": "8a902a81-2319-45d7-a93c-b84a158d3a15",
+    "heldItem": "0f6907a8-f101-4ff9-a354-d3ded95c9dab",
     "name": "tile",
     "location": {},
-    "id": "4c9ae426-d3e9-4157-bb2b-b7eafa4743f2"
-  }
+    "id": "e1363245-a954-4453-9f45-e62fcd4e64ab"
+  }},
+  "controller": {"PlayerController": {"player": {"Player": {
+    "components": {
+      "Rect": {
+        "parent": {},
+        "halfW": 16,
+        "h": 32,
+        "edgeT": -16,
+        "localPosition": {"PVector": {
+          "array": {},
+          "x": 25,
+          "y": 25,
+          "z": 0
+        }},
+        "edgeR": 16,
+        "edgeL": -16,
+        "halfH": 16,
+        "w": 32,
+        "x": 0,
+        "name": "rect",
+        "y": 0,
+        "edgeB": 16,
+        "id": "1603ad0a-d4c8-4cb3-97c9-bc40def9d653"
+      },
+      "Movement": {
+        "parent": {},
+        "moveTime": "8669bd44-5e73-4772-9d0d-14fb42f8762f",
+        "isMoving": false,
+        "name": "movement",
+        "moveAmount": {},
+        "id": "96facce9-acbf-46e7-9498-c8d5aa428cb4",
+        "newLocation": {}
+      }
+    },
+    "m_Movement": "96facce9-acbf-46e7-9498-c8d5aa428cb4",
+    "m_Rect": "1603ad0a-d4c8-4cb3-97c9-bc40def9d653",
+    "name": "player",
+    "location": {"PVector": {
+      "array": {},
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }},
+    "id": "0f6907a8-f101-4ff9-a354-d3ded95c9dab"
+  }}}},
+  "commands": {}
 }}

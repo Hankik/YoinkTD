@@ -11,6 +11,7 @@ class Rect extends Component {
     this.parent = parent;
     setPosition(parent.location);
     setSize(TILE_SIZE, TILE_SIZE);
+    localPosition = new PVector(25,25);
     calculateAABB();
   }
 
