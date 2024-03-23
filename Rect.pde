@@ -6,18 +6,17 @@ class Rect extends Component {
   float halfW, halfH;
   
   Rect(Actor parent){
-    name = "rect";
+    
   
     this.parent = parent;
     setPosition(parent.location);
     setSize(TILE_SIZE, TILE_SIZE);
-    localPosition = new PVector(25,25);
     calculateAABB();
   }
 
   Rect(float x, float y, float w, float h) {
 
-    name = "rect";
+    
     this.x = x;
     this.y = y;
     setSize(w, h);
@@ -66,6 +65,7 @@ class Rect extends Component {
     rectMode(CENTER);
     noFill();
     stroke(255);
+    rectMode(CENTER);
     rect(x, y, w, h, 10);
   }
 

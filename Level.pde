@@ -1,20 +1,32 @@
+enum LEVEL_TYPE {
+  LEVEL,
+  PAUSE_MENU,
+  MAIN_MENU,
+  HUD,
+}
+
 class Level implements Updates, Displays {
 
-  PlayerController controller = new PlayerController();
   ArrayList<Object> actors = new ArrayList(); // do not add non-actor types
   ArrayList<Command> commands = new ArrayList();
+  LEVEL_TYPE type = LEVEL_TYPE.LEVEL;
 
-  Level() {
+  Level(LEVEL_TYPE type) {
+    this.type = type;
+    if (type != LEVEL_TYPE.LEVEL) { println("Created ui scene " + cleanName(this.toString())); return; }
 
     Tile t = (Tile) addActor("Tile");
-    t.heldItem = new WeakReference(controller.player);
+    //addActor("Tile");
+    Player player = (Player) addActor("Player");
+    t.heldItem = new WeakReference(player);
   }
 
   void update() {
-    controller.update();
-    controller.player.update();
     update(actors);
-    
+    handleCommands();
+  }
+  
+  void handleCommands(){
     for (int i = commands.size() - 1; i >= 0; i--) {
       commands.get(i).call();
       commands.remove(i);
@@ -22,33 +34,39 @@ class Level implements Updates, Displays {
   }
 
   void display() {
-
-    controller.player.display();
     display(actors);
   }
 
   void keyPressed() {
-    controller.keyPressed();
+    //controller.keyPressed();
   }
 
   void keyReleased() {
-    controller.keyReleased();
+    //controller.keyReleased();
   }
 
   void mousePressed() {
-    controller.mousePressed();
+   // controller.mousePressed();
   }
 
   void mouseReleased() {
-    controller.mouseReleased();
+    //controller.mouseReleased();
   }
 
+  Actor addActor(Actor actor){
+    if (actor != null)  {
+    
+      actors.add(actor);
+      println(actor.getClass().getSimpleName() + " actor added to " + cleanName(this.toString()) + "... ");
+    }
+    return actor;
+  }
 
   Actor addActor(String name) {
     Actor actor = createActor(name);
     if (actor != null) {
       actors.add(actor);
-      println(name + " actor added to a level.");
+      println(name + " actor added to " + cleanName(this.toString()));
     }
     return actor;
   }

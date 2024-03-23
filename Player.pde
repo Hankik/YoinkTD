@@ -1,12 +1,12 @@
-class Player extends Actor {
+class Player extends Actor { // this will not be in the end product i dont think
   
   Movement m_Movement;
   Rect m_Rect;
   
   Player(){ 
-    name = "player";
     
-    location = new PVector(0,0);
+    PVector startPosition = getGridLocation( new PVector(0, 0) );
+    location = new PVector(startPosition.x, startPosition.y);
     m_Movement = (Movement) addComponent("Movement");
     m_Rect = (Rect) addComponent("Rect");
     
@@ -16,6 +16,15 @@ class Player extends Actor {
   
     m_Rect.update();
     update(components);
+    
+    if (Keyboard.isDown(Keyboard.LEFT) && !Keyboard.isDown(Keyboard.RIGHT))
+      m_Movement.move( new PVector(-TILE_SIZE, 0)  ); 
+    if (!Keyboard.isDown(Keyboard.LEFT) && Keyboard.isDown(Keyboard.RIGHT))
+      m_Movement.move( new PVector(TILE_SIZE, 0) ); 
+    if (Keyboard.isDown(Keyboard.UP) && !Keyboard.isDown(Keyboard.DOWN))
+      m_Movement.move( new PVector(0, -TILE_SIZE) );
+    if (!Keyboard.isDown(Keyboard.UP) && Keyboard.isDown(Keyboard.DOWN))
+      m_Movement.move( new PVector(0, TILE_SIZE) ); 
     
     
   }
@@ -27,22 +36,11 @@ class Player extends Actor {
 } 
 
 
-class PlayerController {
+class PlayerController { // maybe make a global thing
 
-  Player player = new Player();
   PlayerController(){}
   
   void update(){
-  
-    if (Keyboard.isDown(Keyboard.LEFT) && !Keyboard.isDown(Keyboard.RIGHT))
-      player.m_Movement.move( new PVector(-TILE_SIZE, 0)  ); 
-    if (!Keyboard.isDown(Keyboard.LEFT) && Keyboard.isDown(Keyboard.RIGHT))
-      player.m_Movement.move( new PVector(TILE_SIZE, 0) ); 
-    if (Keyboard.isDown(Keyboard.UP) && !Keyboard.isDown(Keyboard.DOWN))
-      player.m_Movement.move( new PVector(0, -TILE_SIZE) );
-    if (!Keyboard.isDown(Keyboard.UP) && Keyboard.isDown(Keyboard.DOWN))
-      player.m_Movement.move( new PVector(0, TILE_SIZE) ); 
-      
   }
   
   void keyPressed(){

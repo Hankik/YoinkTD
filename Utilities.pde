@@ -1,9 +1,29 @@
 
+// IMPORTANT
+PVector getGridLocation(PVector location) {
+  return new PVector( floor(location.x / TILE_SIZE) * TILE_SIZE + TILE_SIZE/2, 
+                      floor(location.y / TILE_SIZE) * TILE_SIZE + TILE_SIZE/2);
+}
+
+class Cursor extends Actor {
+  
+  WeakReference<Actor> heldActor = null;
+  
+  void update(){
+    location = new PVector(mouseX, mouseY);
+  }
+  
+  void display(){
+    PVector gridLocation = getGridLocation(location);
+    rectMode(CENTER);
+    rect(gridLocation.x, gridLocation.y, TILE_SIZE, TILE_SIZE);
+  }
+}
 
 class Timer extends Component {
 
-  float duration;
-  float timeLeft;
+  float duration = 1;
+  float timeLeft = 1;
   float elapsed = 0;
   boolean isDone = true;
   boolean autoRestart = false;
@@ -13,9 +33,8 @@ class Timer extends Component {
   
   Timer(Actor parent){
   
-    name = "timer";
+    
     this.parent = parent;
-    duration = 1;
     timeLeft = duration;
     isDone = false;
   }
@@ -77,7 +96,6 @@ class SetFieldReferenceCommand implements Command {
     Object referencedObject = null;
 
     void call(){
-      // find actor with uuid
       try { referenceField.set(referenceHolder, referencedObject); } 
       catch(Exception e) {println(e);}
       
@@ -104,3 +122,18 @@ float easeInOut(float t, float b, float c, float d) {
       return -.5f * (a * (float) Math.pow(2, 10 * (t -= 1)) * (float) Math.sin((t * d - s) * (2 * (float) Math.PI) / p)) + b;
     return a * (float) Math.pow(2, -10 * (t -= 1)) * (float) Math.sin((t * d - s) * (2 * (float) Math.PI) / p) * .5f + c + b;
   }
+
+// color constants
+final color RED = #bf616a;
+final color ORANGE = #d08770;
+final color YELLOW = #ebcb8b;
+final color GREEN = #a3be8c;
+final color PURPLE = #b48ead;
+final color BLUE = #5e81ac;
+final color WHITE = #eceff4;
+final color BLACK = #3b4252;
+final color BROWN = #9e6257;
+final color LIGHTGREEN = #d9e68f;
+final color PINK = #db96ad;
+final color LIGHTBLUE = #92cade;
+final color LIGHTRED = #FF8C8C;

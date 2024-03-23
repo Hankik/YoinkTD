@@ -1,6 +1,5 @@
 abstract class Actor implements Updates, Displays { // abstract means you cannot make an instance of this (only child instances)
 
-  String name = "actor";
   String id = UUID.randomUUID().toString();
   PVector location = new PVector(0, 0);
   ArrayList<Object> components = new ArrayList(); // do not add non-component types
@@ -25,7 +24,7 @@ abstract class Actor implements Updates, Displays { // abstract means you cannot
         // Add the component to the list
         components.add(component);
 
-        println(name + " component added to " + this.name);
+        print(name + " component added to " + cleanName(this.toString()) + "... ");
         return component;
       } else {
         println(name + " is not a component.");
@@ -51,7 +50,6 @@ abstract class Actor implements Updates, Displays { // abstract means you cannot
 
 abstract class Component implements Updates, Displays {
 
-  String name = "component";
   Actor parent = null;
   String id = UUID.randomUUID().toString();
   abstract void update();

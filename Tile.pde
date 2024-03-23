@@ -6,9 +6,9 @@ class Tile extends Actor {
   WeakReference<TileHolds> heldItem = null; 
   
   Tile(){
-    name = "tile";
-  
-    location = new PVector(0,0); // many components require its parent have a location so make sure we instantiate location ahead of time
+    
+    PVector startPosition = getGridLocation( new PVector(0, 0) );
+    location = new PVector(startPosition.x, startPosition.y); // many components require its parent have a location so make sure we instantiate location ahead of time
     //hitbox = (Rect) 
     addComponent("Rect");  // like rect ^^
   }
