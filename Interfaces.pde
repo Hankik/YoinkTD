@@ -14,6 +14,14 @@ interface Displays {
   }
 }
 
+interface Listens {
+
+  abstract void keyPressed();
+  abstract void keyReleased();
+  abstract void mousePressed();
+  abstract void mouseReleased();
+}
+
 interface TileHolds {
 
   default boolean tryPlaceOnTile(Tile t){

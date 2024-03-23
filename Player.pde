@@ -1,11 +1,11 @@
-class Player extends Actor { // this will not be in the end product i dont think
+class Player extends Actor implements Listens { // this will not be in the end product i dont think
   
   Movement m_Movement;
   Rect m_Rect;
   
   Player(){ 
     
-    PVector startPosition = getGridLocation( new PVector(0, 0) );
+    PVector startPosition = getGridLocation( new PVector(GRID_X_OFFSET, 0) );
     location = new PVector(startPosition.x, startPosition.y);
     m_Movement = (Movement) addComponent("Movement");
     m_Rect = (Rect) addComponent("Rect");
@@ -33,6 +33,14 @@ class Player extends Actor { // this will not be in the end product i dont think
     m_Rect.setPosition(location);
     m_Rect.display();
   }
+  
+  void keyPressed(){}
+  
+  void keyReleased(){}
+  
+  void mousePressed(){}
+  
+  void mouseReleased(){}
 } 
 
 
@@ -43,9 +51,7 @@ class PlayerController { // maybe make a global thing
   void update(){
   }
   
-  void keyPressed(){
-      
-  }
+  void keyPressed(){}
   
   void keyReleased(){}
   
