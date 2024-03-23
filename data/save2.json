@@ -1,111 +1,26 @@
 {"Level": {
   "actors": {
-    "Player@7225ab6a": {
-      "components": {
-        "Rect@23e19e64": {
-          "parent": {},
-          "halfW": 16,
-          "h": 32,
-          "edgeT": 0,
-          "localPosition": {},
-          "edgeR": 32,
-          "edgeL": 0,
-          "halfH": 16,
-          "w": 32,
-          "x": 16,
-          "y": 16,
-          "edgeB": 32,
-          "id": "41e2c2fa-e910-45e2-9f6f-9066805b1c69"
-        },
-        "Movement@45557332": {
-          "parent": {},
-          "moveTime": "a0b1bcaf-f57b-48dc-aab9-51fbe21a05fb",
-          "isMoving": false,
-          "moveAmount": {},
-          "id": "6ce79c59-907c-4773-b4a1-657007fc5816",
-          "newLocation": {}
-        },
-        "Rect@702c4b1d": {
-          "parent": {},
-          "halfW": 16,
-          "h": 32,
-          "edgeT": 0,
-          "localPosition": {},
-          "edgeR": 32,
-          "edgeL": 0,
-          "halfH": 16,
-          "w": 32,
-          "x": 16,
-          "y": 16,
-          "edgeB": 32,
-          "id": "187a9ba7-bb2c-42b9-9c80-5a481705b86d"
-        },
-        "Movement@340c178f": {
-          "parent": {},
-          "moveTime": "21fe42c6-bb49-4026-a534-c333f450dff7",
-          "isMoving": false,
-          "moveAmount": {},
-          "id": "0d97bd2f-fb19-45d5-aa25-2da4188235ff",
-          "newLocation": {}
-        }
-      },
-      "m_Movement": "0d97bd2f-fb19-45d5-aa25-2da4188235ff",
-      "m_Rect": "41e2c2fa-e910-45e2-9f6f-9066805b1c69",
-      "location": {},
-      "id": "6319e482-98e7-4269-923c-8b718ef2b6b2"
-    },
-    "Player@71fcb68a": {
-      "components": {
-        "Rect@4c6f3479": {
-          "parent": {},
-          "halfW": 16,
-          "h": 32,
-          "edgeT": 0,
-          "localPosition": {},
-          "edgeR": 32,
-          "edgeL": 0,
-          "halfH": 16,
-          "w": 32,
-          "x": 16,
-          "y": 16,
-          "edgeB": 32,
-          "id": "b480d6e7-2790-4bb1-90b5-201405ff2221"
-        },
-        "Movement@134ea381": {
-          "parent": {},
-          "moveTime": "7ed380bc-af16-448b-ad37-e34445db1577",
-          "isMoving": false,
-          "moveAmount": {},
-          "id": "179b15ee-0db3-40a6-9287-d080252bd237",
-          "newLocation": {}
-        }
-      },
-      "m_Movement": "179b15ee-0db3-40a6-9287-d080252bd237",
-      "m_Rect": "b480d6e7-2790-4bb1-90b5-201405ff2221",
-      "location": {},
-      "id": "1b99c645-37a8-4e94-9048-e86b2bfb40c2"
-    },
-    "Tile@7791f15a": {
-      "components": {"Rect@24488af8": {
+    "Tile@7334d33": {
+      "components": {"Rect@75ec2e13": {
         "parent": {},
         "halfW": 16,
         "h": 32,
         "edgeT": 0,
         "localPosition": {},
-        "edgeR": 32,
-        "edgeL": 0,
+        "edgeR": 288,
+        "edgeL": 256,
         "halfH": 16,
         "w": 32,
-        "x": 16,
+        "x": 272,
         "y": 16,
         "edgeB": 32,
-        "id": "6eaae40c-a841-4a35-bd3e-3f2ab54c4c96"
+        "id": "7841708b-e856-4f71-9711-f107d07f755e"
       }},
       "location": {},
-      "id": "59be76c4-4c72-4ade-af09-0fd4b6a25550"
+      "id": "2d3aa720-73c1-4207-b238-df50bf7fbd56"
     },
-    "Tile@4a59ed11": {
-      "components": {"Rect@7121d0f": {
+    "Tile@4688a62b": {
+      "components": {"Rect@3549c66c": {
         "parent": {},
         "halfW": 16,
         "h": 32,
@@ -115,22 +30,107 @@
           "y": 0,
           "z": 0
         }},
-        "edgeR": 32,
-        "edgeL": 0,
+        "edgeR": 288,
+        "edgeL": 256,
         "halfH": 16,
         "w": 32,
-        "x": 16,
+        "x": 272,
         "y": 16,
         "edgeB": 32,
-        "id": "6d4b3eae-0da9-46c7-a9cc-8b113bd5b609"
+        "id": "cc478cd6-39df-4af4-99f6-0d9744765858"
       }},
-      "heldItem": "1b99c645-37a8-4e94-9048-e86b2bfb40c2",
+      "heldItem": "46ad078d-af3c-412b-bcad-c26792f9527f",
       "location": {"PVector": {
-        "x": 16,
+        "x": 272,
         "y": 16,
         "z": 0
       }},
-      "id": "dd693964-b104-407a-b417-b2ed2c4ecbe3"
+      "id": "1279de42-6ba7-4b70-8316-240abee72711"
+    },
+    "Player@36739777": {
+      "components": {
+        "Movement@2fb67839": {
+          "parent": {},
+          "moveTime": "c73b142a-afa2-4d09-a79e-e566cccd8c0d",
+          "isMoving": false,
+          "moveAmount": {},
+          "id": "21cb29c6-9eea-4dec-b463-6950c2ecbeb9",
+          "newLocation": {}
+        },
+        "Movement@eedfc64": {
+          "parent": {},
+          "moveTime": "c00f054d-4c52-42b5-ac0f-a610eee6c2dc",
+          "isMoving": false,
+          "moveAmount": {},
+          "id": "773667d2-2fdd-473c-8ea1-c596a28eb73c",
+          "newLocation": {}
+        },
+        "Rect@3b3e576a": {
+          "parent": {},
+          "halfW": 16,
+          "h": 32,
+          "edgeT": 0,
+          "localPosition": {},
+          "edgeR": 288,
+          "edgeL": 256,
+          "halfH": 16,
+          "w": 32,
+          "x": 272,
+          "y": 16,
+          "edgeB": 32,
+          "id": "ec06fffa-a478-44a6-bf60-432e335863c4"
+        },
+        "Rect@684f1d1": {
+          "parent": {},
+          "halfW": 16,
+          "h": 32,
+          "edgeT": 0,
+          "localPosition": {},
+          "edgeR": 288,
+          "edgeL": 256,
+          "halfH": 16,
+          "w": 32,
+          "x": 272,
+          "y": 16,
+          "edgeB": 32,
+          "id": "6d9a438b-434a-4ef9-a9dc-6bbbf27679b6"
+        }
+      },
+      "m_Movement": "773667d2-2fdd-473c-8ea1-c596a28eb73c",
+      "m_Rect": "6d9a438b-434a-4ef9-a9dc-6bbbf27679b6",
+      "location": {},
+      "id": "7760025e-0a1e-4a5a-b458-c752ef3bf81d"
+    },
+    "Player@44666232": {
+      "components": {
+        "Rect@5f0ec2aa": {
+          "parent": {},
+          "halfW": 16,
+          "h": 32,
+          "edgeT": 0,
+          "localPosition": {},
+          "edgeR": 288,
+          "edgeL": 256,
+          "halfH": 16,
+          "w": 32,
+          "x": 272,
+          "y": 16,
+          "edgeB": 32,
+          "id": "996713ef-0c74-4f08-9910-016da74f92da"
+        },
+        "Movement@42494505": {
+          "parent": {},
+          "moveTime": "73e1bb6e-3833-4aaf-b056-8baabd66e1ae",
+          "isMoving": false,
+          "moveAmount": {},
+          "id": "1d68dabe-97df-4466-a8a9-952c5b7a6443",
+          "newLocation": {}
+        }
+      },
+      "m_Movement": "1d68dabe-97df-4466-a8a9-952c5b7a6443",
+      "m_Rect": "996713ef-0c74-4f08-9910-016da74f92da",
+      "location": {},
+      "id": "46ad078d-af3c-412b-bcad-c26792f9527f"
     }
   },
   "type": {"LEVEL_TYPE": "LEVEL_TYPE.LEVEL"},

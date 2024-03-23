@@ -11,7 +11,9 @@ float elapsed = 0.0;
 // TIMESTEP
 
 // TILE GLOBALS //
+final float GRID_X_OFFSET = 256;
 final float TILE_SIZE = 32;
+/* Use getGridLocation(PVector) to map items into grid */
 // TILE GLOBALS // 
 
 // LEVEL GLOBALS //
@@ -25,8 +27,9 @@ Level hud;
 
 // FONT GLOBALS //
 PFont maiandra;
+// FONT GLOBALS //
 
-YoinkTD applet = this; // I need this for the Constructor class method newInstance(applet, ... (other parameters);
+YoinkTD applet = this; // We need this for the Constructor class method newInstance(applet, ... (other parameters);
 
 boolean paused = false;
 
@@ -53,7 +56,7 @@ void setup() {
 }
 
 void draw() {
-  background(0);
+  background(BLACK);
   
  // calculate delta time
   float currTime = millis();
@@ -69,21 +72,25 @@ void draw() {
 }
 
 void mousePressed(){
+  hud.mousePressed();
   levels[currentLevel].mousePressed();
 }
 
 void mouseReleased(){
+  hud.mouseReleased();
   levels[currentLevel].mouseReleased();
 }
 
 void keyPressed(){
   Keyboard.handleKeyDown(keyCode);
+  hud.keyPressed();
   levels[currentLevel].keyPressed();
 }
 
 
 void keyReleased(){
   Keyboard.handleKeyUp(keyCode);
+  hud.keyReleased();
   levels[currentLevel].keyReleased();
   if (key == 'p') paused = !paused;
 }

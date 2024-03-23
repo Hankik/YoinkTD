@@ -5,7 +5,7 @@ enum LEVEL_TYPE {
   HUD,
 }
 
-class Level implements Updates, Displays {
+class Level implements Updates, Displays, Listens {
 
   ArrayList<Object> actors = new ArrayList(); // do not add non-actor types
   ArrayList<Command> commands = new ArrayList();
@@ -14,6 +14,7 @@ class Level implements Updates, Displays {
   Level(LEVEL_TYPE type) {
     this.type = type;
     if (type != LEVEL_TYPE.LEVEL) { println("Created ui scene " + cleanName(this.toString())); return; }
+    else println("Created level " + cleanName(this.toString()));
 
     Tile t = (Tile) addActor("Tile");
     //addActor("Tile");
@@ -38,19 +39,19 @@ class Level implements Updates, Displays {
   }
 
   void keyPressed() {
-    //controller.keyPressed();
+    for (Object a : actors) if (a instanceof Listens) ((Listens)a).keyPressed();
   }
 
   void keyReleased() {
-    //controller.keyReleased();
+    for (Object a : actors) if (a instanceof Listens) ((Listens)a).keyReleased();
   }
 
   void mousePressed() {
-   // controller.mousePressed();
+   for (Object a : actors) if (a instanceof Listens) ((Listens)a).mousePressed();
   }
 
   void mouseReleased() {
-    //controller.mouseReleased();
+    for (Object a : actors) if (a instanceof Listens) ((Listens)a).mouseReleased();
   }
 
   Actor addActor(Actor actor){

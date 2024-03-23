@@ -1,38 +1,7 @@
 {"Level": {
   "actors": {
-    "Player@10338a79": {
-      "components": {
-        "Rect@34f7c645": {
-          "parent": {},
-          "halfW": 16,
-          "h": 32,
-          "edgeT": 0,
-          "localPosition": {},
-          "edgeR": 32,
-          "edgeL": 0,
-          "halfH": 16,
-          "w": 32,
-          "x": 16,
-          "y": 16,
-          "edgeB": 32,
-          "id": "68918ea5-d96b-4fdd-8b60-99ce2a8d3267"
-        },
-        "Movement@5212d719": {
-          "parent": {},
-          "moveTime": "fc6e4b3c-4436-4de6-b8a7-cd35b8497c51",
-          "isMoving": false,
-          "moveAmount": {},
-          "id": "23c38aa1-78eb-4f52-a804-00b621fd3449",
-          "newLocation": {}
-        }
-      },
-      "m_Movement": "23c38aa1-78eb-4f52-a804-00b621fd3449",
-      "m_Rect": "68918ea5-d96b-4fdd-8b60-99ce2a8d3267",
-      "location": {},
-      "id": "6319e482-98e7-4269-923c-8b718ef2b6b2"
-    },
-    "Tile@65956ada": {
-      "components": {"Rect@7deac74e": {
+    "Tile@12398f2": {
+      "components": {"Rect@42260f9": {
         "parent": {},
         "halfW": 16,
         "h": 32,
@@ -42,22 +11,53 @@
           "y": 0,
           "z": 0
         }},
-        "edgeR": 32,
-        "edgeL": 0,
+        "edgeR": 288,
+        "edgeL": 256,
         "halfH": 16,
         "w": 32,
-        "x": 16,
+        "x": 272,
         "y": 16,
         "edgeB": 32,
-        "id": "8675bf08-ea32-4545-93bd-6cf86dde629b"
+        "id": "d7b4a137-5477-47ae-9ee7-16bd886ea7c3"
       }},
-      "heldItem": "6319e482-98e7-4269-923c-8b718ef2b6b2",
+      "heldItem": "7760025e-0a1e-4a5a-b458-c752ef3bf81d",
       "location": {"PVector": {
-        "x": 16,
+        "x": 272,
         "y": 16,
         "z": 0
       }},
-      "id": "59be76c4-4c72-4ade-af09-0fd4b6a25550"
+      "id": "2d3aa720-73c1-4207-b238-df50bf7fbd56"
+    },
+    "Player@547d9e58": {
+      "components": {
+        "Rect@5d83b677": {
+          "parent": {},
+          "halfW": 16,
+          "h": 32,
+          "edgeT": 0,
+          "localPosition": {},
+          "edgeR": 288,
+          "edgeL": 256,
+          "halfH": 16,
+          "w": 32,
+          "x": 272,
+          "y": 16,
+          "edgeB": 32,
+          "id": "27197def-e5b5-40a9-bc25-9e7f529a243c"
+        },
+        "Movement@2e3d45c5": {
+          "parent": {},
+          "moveTime": "e9f5592d-4f31-4a23-8d91-87316d6e7730",
+          "isMoving": false,
+          "moveAmount": {},
+          "id": "c39438d7-6c7e-453b-91e9-f0983d5b9cc6",
+          "newLocation": {}
+        }
+      },
+      "m_Movement": "c39438d7-6c7e-453b-91e9-f0983d5b9cc6",
+      "m_Rect": "27197def-e5b5-40a9-bc25-9e7f529a243c",
+      "location": {},
+      "id": "7760025e-0a1e-4a5a-b458-c752ef3bf81d"
     }
   },
   "type": {"LEVEL_TYPE": "LEVEL_TYPE.LEVEL"},

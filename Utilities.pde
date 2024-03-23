@@ -7,7 +7,7 @@ PVector getGridLocation(PVector location) {
 
 class Cursor extends Actor {
   
-  WeakReference<Actor> heldActor = null;
+  WeakReference<Actor> heldActor = new WeakReference(null);
   
   void update(){
     location = new PVector(mouseX, mouseY);
@@ -86,6 +86,16 @@ class Timer extends Component {
   void togglePause(){
   
     paused = !paused;
+  }
+}
+
+class AddActorCommand implements Command {
+
+  Actor actorToAdd = null;
+  Level actorLevel = null;
+  
+  void call(){
+    actorLevel.addActor(actorToAdd);
   }
 }
 

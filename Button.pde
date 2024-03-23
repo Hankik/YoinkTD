@@ -1,67 +1,69 @@
-class Button extends Actor {
+class Button extends Actor implements Listens {
 
   String text = "";
-  Rect hitbox;
+  Rect rect;
   ButtonState state = ButtonState.IDLE;
-  Command purpose;
+  Callback purpose = () -> { println("\nbutton does nothing"); return false; };
   
   Button(){
   
-    hitbox.setPosition(new PVector(width/2, height/2));
-    hitbox.setSize(TILE_SIZE, TILE_SIZE);
+    PVector startPosition = getGridLocation( new PVector(width/2, height/2) );
+    location = new PVector(startPosition.x, startPosition.y);
+    rect = (Rect) addComponent("Rect");
+    rect.setSize(TILE_SIZE, TILE_SIZE);
   }
 
-  Button(PVector location, PVector size, String text, Command purpose) {
+  Button(PVector location, PVector size, String text, Callback purpose) {
 
-    hitbox = new Rect(location.x, location.y, size.x, size.y);
+    rect = new Rect(location.x, location.y, size.x, size.y);
     this.purpose = purpose;
     this.text = text;
   }
 
   void update() {
-    hitbox.update();
+    rect.update();
 
     switch (state) {
 
     case IDLE:
-      if (mouseX < hitbox.x - hitbox.halfW) break;
-      if (mouseX > hitbox.x + hitbox.halfW) break;
-      if (mouseY < hitbox.y - hitbox.halfH) break;
-      if (mouseY > hitbox.y + hitbox.halfH) break;
+      if (mouseX < rect.x - rect.halfW) break;
+      if (mouseX > rect.x + rect.halfW) break;
+      if (mouseY < rect.y - rect.halfH) break;
+      if (mouseY > rect.y + rect.halfH) break;
       state = ButtonState.HOVERED;
       break;
     case HOVERED:
-      if (mouseX < hitbox.x - hitbox.halfW) {
+      if (mouseX < rect.x - rect.halfW) {
         state = ButtonState.IDLE;
         break;
       }
-      if (mouseX > hitbox.x + hitbox.halfW) {
+      if (mouseX > rect.x + rect.halfW) {
         state = ButtonState.IDLE;
         break;
       }
-      if (mouseY < hitbox.y - hitbox.halfH) {
+      if (mouseY < rect.y - rect.halfH) {
         state = ButtonState.IDLE;
         break;
       }
-      if (mouseY > hitbox.y + hitbox.halfH) {
+      if (mouseY > rect.y + rect.halfH) {
         state = ButtonState.IDLE;
         break;
       }
       break;
     case PRESSED:
-      if (mouseX < hitbox.x - hitbox.halfW) {
+      if (mouseX < rect.x - rect.halfW) {
         state = ButtonState.IDLE;
         break;
       }
-      if (mouseX > hitbox.x + hitbox.halfW) {
+      if (mouseX > rect.x + rect.halfW) {
         state = ButtonState.IDLE;
         break;
       }
-      if (mouseY < hitbox.y - hitbox.halfH) {
+      if (mouseY < rect.y - rect.halfH) {
         state = ButtonState.IDLE;
         break;
       }
-      if (mouseY > hitbox.y + hitbox.halfH) {
+      if (mouseY > rect.y + rect.halfH) {
         state = ButtonState.IDLE;
         break;
       }
@@ -93,11 +95,11 @@ class Button extends Actor {
     stroke(0);
     textFont(maiandra);
     strokeWeight(1);
-    rect( hitbox.x - hitbox.halfW, hitbox.y - hitbox.halfH, hitbox.w, hitbox.h, 8);
+    rect( rect.x - rect.halfW, rect.y - rect.halfH, rect.w, rect.h, 8);
     fill(0);
     textAlign(CENTER);
     textSize(16);
-    text(text, hitbox.x, hitbox.y + 7);
+    text(text, rect.x, rect.y + 7);
   }
 
   void mousePressed() {
@@ -115,6 +117,9 @@ class Button extends Actor {
       state = ButtonState.RELEASED;
     }
   }
+  
+  void keyPressed(){}
+  void keyReleased(){}
 }
 
 enum ButtonState {
