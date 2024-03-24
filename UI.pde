@@ -24,12 +24,9 @@ Level createUI(LEVEL_TYPE type) {
                                               random(0, height)));
       newButton.text = "-";
       newButton.purposeCallback = () -> { newButton.actorState = ACTOR_STATE.DEAD;  return true; };
-      // adding actors during update requires using this command
-      // otherwise, you can add actors while game is paused
-      AddActorCommand addActorCommand = new AddActorCommand();
-      addActorCommand.actorToAdd = newButton;
-      addActorCommand.actorLevel = levels.get(currentLevel);
-      level.commands.add( addActorCommand ); 
+  
+      levels.get(currentLevel).addActor(newButton);
+      
       return true;
     };        
     Button hidePlayerButton = (Button) level.addActor("Button");
@@ -92,5 +89,7 @@ class HUDOverlay extends Actor {
     text((paused ? "paused" : ""), width - GRID_X_OFFSET - TILE_SIZE, height - TILE_SIZE);
     textAlign(LEFT);
     text("level: " + currentLevel, GRID_X_OFFSET + TILE_SIZE, height - TILE_SIZE);
+    PVector mouseGridLocation = getGridLocation(new PVector(mouseX, mouseY));
+    text("x: " + mouseGridLocation.x + ", y: " + mouseGridLocation.y, GRID_X_OFFSET + TILE_SIZE*4, height - TILE_SIZE);
   }
 }

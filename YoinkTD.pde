@@ -39,7 +39,7 @@ void setup() {
   
   surface.setTitle("YoinkTD");
   surface.setResizable(false);
-  size(1280, 720);
+  size(1280, 736);
   frameRate(60);
   
   hud = createUI(LEVEL_TYPE.HUD);

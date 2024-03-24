@@ -49,7 +49,7 @@ public class JSONSerializer {
           
           if (fieldType.isEnum()) { 
             JSONObject subobject = new JSONObject();
-            subobject.setString(fieldType.getSimpleName(), "LEVEL_TYPE.LEVEL"); // FIX: this hard codes enums to be a LEVEL_TYPE (CURSED)
+            subobject.setString(fieldType.getSimpleName(), field.get(o).toString()); 
             contents.setJSONObject(field.getName(), subobject); 
             continue; 
           }
@@ -186,15 +186,32 @@ void populateActorFields(Actor actor, JSONObject json) {
           field.set( actor, subActor );
           continue;
         }
+        
 
         //println(field.getName());
         Object userDefinedObj = (Object) field.get(actor);
+        
+        if (userDefinedObj.getClass().isEnum()){
+          JSONObject userDefinedObjJSON = (JSONObject) json.get(field.getName());
+          String inner = (String) userDefinedObjJSON.get(userDefinedObj.getClass().getSimpleName());
+          Class<?> enumType = Class.forName(fieldType.getName());
+          Enum<?> enumObj = setEnumByString(enumType.asSubclass(Enum.class), inner);
+          userDefinedObj = enumObj;
+          continue;
+        }
+        
         List<Field> userDefinedObjFields = Arrays.asList( userDefinedObj.getClass().getDeclaredFields() );
         JSONObject userDefinedObjJSON = (JSONObject) json.get(field.getName());
+        
+        // FIX: A lot of special cases like PVector are being handled individually. NOT SCALABLE
+        if (PVector.class.isAssignableFrom(fieldType) && userDefinedObjJSON != null) userDefinedObjJSON = (JSONObject) userDefinedObjJSON.get("PVector");
+        
         for (Field userDefinedObjField : userDefinedObjFields) {
+          //println(userDefinedObjField.getName());
           if (userDefinedObjJSON.get( userDefinedObjField.getName()) != null)
             userDefinedObjField.set(userDefinedObj, userDefinedObjJSON.get( userDefinedObjField.getName() ));
         }
+        //if (field.getName().equals("location")) println(field.get(actor));
 
         // we have a userdefined field
       } else {
@@ -224,7 +241,7 @@ void populateActorFields(Actor actor, JSONObject json) {
           switch (javaObjectType) {
 
           case "String":
-            //println(json.get(field.getName()).toString());
+            println(json.get(field.getName()).toString());
             String foundString = json.get(field.getName()).toString();
 
             // look to see if value is an id BUT I DONT WANT THE KEY TO BE AN ID
@@ -377,6 +394,16 @@ void populateComponentFields(Component component, JSONObject json) {
       e.printStackTrace(); // Handle exceptions appropriately
     }
   }
+}
+
+// Function to set enum value by string using reflection
+public static <T extends Enum<T>> T setEnumByString(Class<T> enumClass, String value) {
+    try {
+        Method valueOfMethod = enumClass.getMethod("valueOf", String.class);
+        return (T) valueOfMethod.invoke(null, value);
+    } catch (Exception e) {
+        throw new IllegalArgumentException("No such enum constant " + value);
+    }
 }
 
 boolean isUserDefinedClass(Class<?> type) {

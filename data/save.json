@@ -1,16 +1,16 @@
 {"Level": {
   "actors": {
-    "Player@f824f52": {
+    "Player@57e95099": {
       "components": {
-        "Movement@1c641073": {
+        "Movement@691e0a3f": {
           "parent": {},
-          "moveTime": "fc180c9b-d531-4a7f-b61a-d806c8e5d64c",
+          "moveTime": "b523e1a4-7392-4f65-bf82-f49f4c196de4",
           "isMoving": false,
           "moveAmount": {},
-          "id": "3c6dfe1b-596d-4173-9a1b-aeaccb5834a2",
+          "id": "20cf893e-f85e-4c01-85f1-dbb61843f228",
           "newLocation": {}
         },
-        "Rect@7d063f48": {
+        "Rect@1fb920ef": {
           "parent": {},
           "halfW": 16,
           "h": 32,
@@ -23,17 +23,17 @@
           "x": 240,
           "y": 16,
           "edgeB": 32,
-          "id": "b08ce926-1234-4970-acb2-2a5a7b253296"
+          "id": "68d551cc-a7b2-4c4b-9c96-6e6d3d273d52"
         }
       },
-      "m_Movement": "3c6dfe1b-596d-4173-9a1b-aeaccb5834a2",
-      "m_Rect": "b08ce926-1234-4970-acb2-2a5a7b253296",
+      "m_Movement": "20cf893e-f85e-4c01-85f1-dbb61843f228",
+      "m_Rect": "68d551cc-a7b2-4c4b-9c96-6e6d3d273d52",
       "location": {},
-      "id": "38d0e3fc-8ccb-4fc8-9654-88c038cd85b2",
-      "actorState": {"ACTOR_STATE": "LEVEL_TYPE.LEVEL"}
+      "id": "fb83f1cf-7aa7-49ab-88a4-fbedef168b6a",
+      "actorState": {"ACTOR_STATE": "AWAKE"}
     },
-    "Tile@692fddcb": {
-      "components": {"Rect@1916c80b": {
+    "Tile@700fa795": {
+      "components": {"Rect@6ce72478": {
         "parent": {},
         "halfW": 16,
         "h": 32,
@@ -50,18 +50,18 @@
         "x": 240,
         "y": 16,
         "edgeB": 32,
-        "id": "ab84ae6d-b44c-43b3-a05e-474aa492ac10"
+        "id": "2d453ef2-40dc-48e9-9824-105202d43ec8"
       }},
-      "heldItem": "38d0e3fc-8ccb-4fc8-9654-88c038cd85b2",
+      "heldItem": "fb83f1cf-7aa7-49ab-88a4-fbedef168b6a",
       "location": {"PVector": {
         "x": 240,
         "y": 16,
         "z": 0
       }},
-      "id": "458b37e6-a30b-45df-b13e-f291492cd839",
-      "actorState": {"ACTOR_STATE": "LEVEL_TYPE.LEVEL"}
+      "id": "e04ea23f-c7a2-4430-b2bc-e7c85b4e7a0f",
+      "actorState": {"ACTOR_STATE": "AWAKE"}
     }
   },
-  "type": {"LEVEL_TYPE": "LEVEL_TYPE.LEVEL"},
+  "type": {"LEVEL_TYPE": "LEVEL"},
   "commands": {}
 }}
