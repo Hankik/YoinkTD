@@ -50,7 +50,7 @@ Level createUI(LEVEL_TYPE type) {
     
       println("\nSaved current level to save2");
       JSONObject json = serializer.getContents(levels.get(currentLevel));
-      saveJSONObject(json, "save2.json");
+      saveJSONObject(json, "data/save2.json");
       return false;
     };
     Button loadFromJSONButton = (Button) level.addActor("Button");
@@ -58,7 +58,7 @@ Level createUI(LEVEL_TYPE type) {
     loadFromJSONButton.location = getGridLocation( new PVector( TILE_SIZE, height/2 + TILE_SIZE * 2) );
     loadFromJSONButton.purposeCallback = () -> {
     
-      JSONObject json = loadJSONObject("save2.json");
+      JSONObject json = loadJSONObject("data/save2.json");
       Level deserializable = createLevel(json);
       levels.add(deserializable);
       deserializable.handleCommands();
