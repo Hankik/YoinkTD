@@ -11,20 +11,29 @@ class Level implements Updates, Displays, Listens {
   ArrayList<Command> commands = new ArrayList();
   LEVEL_TYPE type = LEVEL_TYPE.LEVEL;
 
+  // CONSTRUCTOR
   Level(LEVEL_TYPE type) {
     this.type = type;
-    if (type != LEVEL_TYPE.LEVEL) { println("Created ui scene " + cleanName(this.toString())); return; }
-    else println("Created level " + cleanName(this.toString()));
+    if (type != LEVEL_TYPE.LEVEL) { println("\nCreated ui scene " + cleanName(this.toString())); return; }
+    else println("\nCreated level " + cleanName(this.toString()));
 
     Tile t = (Tile) addActor("Tile");
-    //addActor("Tile");
     Player player = (Player) addActor("Player");
     t.heldItem = new WeakReference(player);
   }
 
   void update() {
-    update(actors);
+    updateActors();
     handleCommands();
+    cullDeadActors();
+  }
+  
+  void updateActors(){
+  
+    for (Object a : actors) {
+      Actor actor = (Actor) a;
+      if (actor.actorState.equals(ACTOR_STATE.AWAKE)) actor.update();
+    }
   }
   
   void handleCommands(){
@@ -33,9 +42,20 @@ class Level implements Updates, Displays, Listens {
       commands.remove(i);
     }
   }
+  
+  void cullDeadActors() {
+  
+    for (int i = actors.size() - 1; i >= 0; i--) {
+      Actor a = (Actor) actors.get(i);
+      if (a.actorState.equals(ACTOR_STATE.DEAD)) actors.remove(i);
+    }
+  }
 
   void display() {
-    display(actors);
+    for (Object a : actors) {
+      Actor actor = (Actor) a;
+      if (actor.actorState.equals(ACTOR_STATE.AWAKE)) actor.display();
+    }
   }
 
   void keyPressed() {
@@ -58,7 +78,7 @@ class Level implements Updates, Displays, Listens {
     if (actor != null)  {
     
       actors.add(actor);
-      println(actor.getClass().getSimpleName() + " actor added to " + cleanName(this.toString()) + "... ");
+      println(cleanName(actor.toString()) + " actor added to " + cleanName(this.toString()) + "... ");
     }
     return actor;
   }
@@ -67,7 +87,7 @@ class Level implements Updates, Displays, Listens {
     Actor actor = createActor(name);
     if (actor != null) {
       actors.add(actor);
-      println(name + " actor added to " + cleanName(this.toString()));
+      println(cleanName(actor.toString()) + " actor added to " + cleanName(this.toString()));
     }
     return actor;
   }

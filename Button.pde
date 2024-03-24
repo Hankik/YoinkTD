@@ -86,10 +86,10 @@ class Button extends Actor implements Listens {
       fill(BLUE);
       break;
       case PRESSED:
-      fill(BLACK);
+      fill(DARKBLUE);
       break;
       case RELEASED:
-      fill(BLACK);
+      fill(DARKBLUE);
       break;
     }
     stroke(0);

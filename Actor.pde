@@ -3,6 +3,7 @@ abstract class Actor implements Updates, Displays { // abstract means you cannot
   String id = UUID.randomUUID().toString();
   PVector location = new PVector(0, 0);
   ArrayList<Object> components = new ArrayList(); // do not add non-component types
+  ACTOR_STATE actorState = ACTOR_STATE.AWAKE;
 
   Component addComponent(String name) {
     try {
@@ -18,23 +19,23 @@ abstract class Actor implements Updates, Displays { // abstract means you cannot
 
         // SORRY THIS IS SOME ARCANE SHIT
         // Instantiate the class
-        // ------------------------------- type.getBlahBlah( requires we pass in the parameter signature to find the constructor we want ).newInstance( pass in those arguments now );
+        // --------------------- requires we pass in the parameter signature to find the constructor we want ().newInstance( pass in those arguments now );
         Component component = (Component) type.getDeclaredConstructor(parameterTypes).newInstance(applet, this); // all constructors have a hidden YoinkTD.class instance passed in
 
         // Add the component to the list
         components.add(component);
 
-        print(name + " component added to " + cleanName(this.toString()) + "... ");
+        print(cleanName(component.toString()) + " component added to " + cleanName(this.toString()) + "... ");
         return component;
       } else {
         println(name + " is not a component.");
       }
     }
     catch (ClassNotFoundException e) {
-      println("Could not find component class: " + e);
+      println("\nCould not find component class: " + e +"\n");
     }
     catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
-      println("Error instantiating component: " + e + "\nREQUIRED: Components need a constructor like this 'Constructor(Actor parent)'!");
+      println("\nError instantiating component: " + e + "\nREQUIRED: Components need a constructor like this 'Constructor(Actor parent)'!\n");
     }
 
     return null;
@@ -61,6 +62,7 @@ abstract class Component implements Updates, Displays {
     this.parent = parent;
   }
 
+  // this might be useful...
   void setProperty(String name, Class<?> type, Object value) {
 
     try {
@@ -110,7 +112,7 @@ Actor createActor(String name) {
       // Get parameter types
       Class[]  parameterTypes = {YoinkTD.class};
 
-      // ------------------------------- type.getBlahBlah( requires we pass in the parameter signature to find the constructor we want ).newInstance( pass in those arguments now );
+      // -----------------requires we pass in the parameter signature to find the constructor we want ().newInstance( pass in those arguments now );
       Actor actor = (Actor) type.getDeclaredConstructor(parameterTypes).newInstance(applet); // all constructors have a hidden YoinkTD.class instance passed in
       return actor;
     } else {
@@ -118,11 +120,18 @@ Actor createActor(String name) {
     }
   }
   catch (ClassNotFoundException e) {
-    println("Could not find actor class: " + e);
+    println("\nCould not find actor class: " + e +"\n");
   }
   catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
-    println("Error instantiating actor: " + e);
+    println("\nError instantiating actor: " + e+"\n");
   }
   
   return null;
+}
+
+enum ACTOR_STATE {
+
+  AWAKE,
+  ASLEEP,
+  DEAD
 }

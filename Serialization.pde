@@ -102,7 +102,7 @@ public class JSONSerializer {
                 WeakReference weakRef = (WeakReference) field.get(o);
               Actor actor = null;
               if (weakRef != null) actor = (Actor) weakRef.get();
-              if (actor != null) contents.setString(field.getName(), actor.id );
+              if (actor != null) contents.setString(field.getName(), actor.id ); // FIX: incomplete
               break;
             }
             break;
@@ -123,7 +123,6 @@ Level createLevel(JSONObject json) {
 
   Level level = new Level(LEVEL_TYPE.LEVEL);
   JSONObject levelFields = (JSONObject) ((JSONObject) json.get("Level")).get("actors");
-  println("Created "+ cleanName(level.toString()) + " from json");
 
   for (Object key : levelFields.keys()) {
     // Get value based on key
