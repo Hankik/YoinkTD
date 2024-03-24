@@ -1,7 +1,7 @@
 {"Level": {
   "actors": {
-    "Tile@12398f2": {
-      "components": {"Rect@42260f9": {
+    "Tile@2dde6e5f": {
+      "components": {"Rect@fa1a259": {
         "parent": {},
         "halfW": 16,
         "h": 32,
@@ -18,19 +18,28 @@
         "x": 272,
         "y": 16,
         "edgeB": 32,
-        "id": "d7b4a137-5477-47ae-9ee7-16bd886ea7c3"
+        "id": "9854dfc5-3e6d-4fe9-8cda-203faf7e5d7f"
       }},
-      "heldItem": "7760025e-0a1e-4a5a-b458-c752ef3bf81d",
+      "heldItem": "515dbf38-b2fa-4905-a93b-a5171d68b186",
       "location": {"PVector": {
         "x": 272,
         "y": 16,
         "z": 0
       }},
-      "id": "2d3aa720-73c1-4207-b238-df50bf7fbd56"
+      "id": "61a5182f-e5db-4be7-b2da-8f3f3d21576c",
+      "actorState": {"ACTOR_STATE": "LEVEL_TYPE.LEVEL"}
     },
-    "Player@547d9e58": {
+    "Player@43803f43": {
       "components": {
-        "Rect@5d83b677": {
+        "Movement@16a75ba1": {
+          "parent": {},
+          "moveTime": "a8faa4fb-ea66-4111-a307-998d17fb150f",
+          "isMoving": false,
+          "moveAmount": {},
+          "id": "96922685-4b52-49a5-9c46-0f171b19be04",
+          "newLocation": {}
+        },
+        "Rect@4186a79": {
           "parent": {},
           "halfW": 16,
           "h": 32,
@@ -43,21 +52,14 @@
           "x": 272,
           "y": 16,
           "edgeB": 32,
-          "id": "27197def-e5b5-40a9-bc25-9e7f529a243c"
-        },
-        "Movement@2e3d45c5": {
-          "parent": {},
-          "moveTime": "e9f5592d-4f31-4a23-8d91-87316d6e7730",
-          "isMoving": false,
-          "moveAmount": {},
-          "id": "c39438d7-6c7e-453b-91e9-f0983d5b9cc6",
-          "newLocation": {}
+          "id": "3f155111-defd-4dc4-a99b-284e9dfc1eb3"
         }
       },
-      "m_Movement": "c39438d7-6c7e-453b-91e9-f0983d5b9cc6",
-      "m_Rect": "27197def-e5b5-40a9-bc25-9e7f529a243c",
+      "m_Movement": "96922685-4b52-49a5-9c46-0f171b19be04",
+      "m_Rect": "3f155111-defd-4dc4-a99b-284e9dfc1eb3",
       "location": {},
-      "id": "7760025e-0a1e-4a5a-b458-c752ef3bf81d"
+      "id": "515dbf38-b2fa-4905-a93b-a5171d68b186",
+      "actorState": {"ACTOR_STATE": "LEVEL_TYPE.LEVEL"}
     }
   },
   "type": {"LEVEL_TYPE": "LEVEL_TYPE.LEVEL"},

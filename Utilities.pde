@@ -140,6 +140,7 @@ final color YELLOW = #ebcb8b;
 final color GREEN = #a3be8c;
 final color PURPLE = #b48ead;
 final color BLUE = #5e81ac;
+final color DARKBLUE = #324061;
 final color WHITE = #eceff4;
 final color BLACK = #3b4252;
 final color BROWN = #9e6257;

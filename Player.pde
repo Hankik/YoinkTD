@@ -1,4 +1,4 @@
-class Player extends Actor implements Listens { // this will not be in the end product i dont think
+class Player extends Actor implements Listens { // this will not be in the end product
   
   Movement m_Movement;
   Rect m_Rect;
@@ -30,8 +30,7 @@ class Player extends Actor implements Listens { // this will not be in the end p
   }
   void display(){
   
-    m_Rect.setPosition(location);
-    m_Rect.display();
+    display(components);
   }
   
   void keyPressed(){}
