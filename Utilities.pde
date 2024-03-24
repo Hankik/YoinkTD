@@ -14,6 +14,8 @@ class Cursor extends Actor {
   }
   
   void display(){
+    noFill();
+    stroke(WHITE);
     PVector gridLocation = getGridLocation(location);
     rectMode(CENTER);
     rect(gridLocation.x, gridLocation.y, TILE_SIZE, TILE_SIZE);

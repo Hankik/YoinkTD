@@ -3,7 +3,7 @@ class Button extends Actor implements Listens {
   String text = "";
   Rect rect;
   ButtonState state = ButtonState.IDLE;
-  Callback purpose = () -> { println("\nbutton does nothing"); return false; };
+  Callback purposeCallback = () -> { println("\nbutton does nothing"); return false; };
   
   Button(){
   
@@ -16,7 +16,7 @@ class Button extends Actor implements Listens {
   Button(PVector location, PVector size, String text, Callback purpose) {
 
     rect = new Rect(location.x, location.y, size.x, size.y);
-    this.purpose = purpose;
+    this.purposeCallback = purpose;
     this.text = text;
   }
 
@@ -69,7 +69,7 @@ class Button extends Actor implements Listens {
       }
       break;
     case RELEASED:
-      purpose.call();
+      purposeCallback.call();
       state = ButtonState.IDLE;
       break;
     }
@@ -95,11 +95,12 @@ class Button extends Actor implements Listens {
     stroke(0);
     textFont(maiandra);
     strokeWeight(1);
-    rect( rect.x - rect.halfW, rect.y - rect.halfH, rect.w, rect.h, 8);
+    rectMode(CENTER);
+    rect( rect.x, rect.y, rect.w, rect.h, 8);
     fill(0);
     textAlign(CENTER);
     textSize(16);
-    text(text, rect.x, rect.y + 7);
+    text(text, rect.x, rect.y + 6);
   }
 
   void mousePressed() {

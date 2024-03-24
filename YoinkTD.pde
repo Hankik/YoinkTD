@@ -11,18 +11,18 @@ float elapsed = 0.0;
 // TIMESTEP
 
 // TILE GLOBALS //
-final float GRID_X_OFFSET = 256;
+final float GRID_X_OFFSET = 224;
 final float TILE_SIZE = 32;
 /* Use getGridLocation(PVector) to map items into grid */
 // TILE GLOBALS // 
 
 // LEVEL GLOBALS //
-final int LEVEL_AMOUNT = 1;
-Level[] levels = new Level[LEVEL_AMOUNT];
+ArrayList<Level> levels = new ArrayList();
 int currentLevel = 0;
 final int UI_SCENE_AMOUNT = 1;
 Level[] uiScenes = new Level[UI_SCENE_AMOUNT];
 Level hud;
+JSONSerializer serializer;
 // LEVEL GLOBALS //
 
 // FONT GLOBALS //
@@ -42,15 +42,13 @@ void setup() {
   size(1280, 720);
   frameRate(60);
   
-  for (int i = 0; i < LEVEL_AMOUNT; i++)  levels[i] = new Level(LEVEL_TYPE.LEVEL);
   hud = createUI(LEVEL_TYPE.HUD);
+  
+  levels.add( new Level(LEVEL_TYPE.LEVEL) );
 
-  JSONSerializer serializer = new JSONSerializer();
-  JSONObject json = serializer.getContents(levels[0]);
+  serializer = new JSONSerializer();
+  JSONObject json = serializer.getContents(levels.get(0));
   saveJSONObject(json, "data/save.json");
-  Level deserializable = createLevel(json);
-  JSONObject json2 = serializer.getContents(deserializable);
-  saveJSONObject(json2, "data/save2.json");
   
   for (Level level : levels) level.handleCommands(); // handle any important commands gathered in deserialization
 }
@@ -65,32 +63,36 @@ void draw() {
   
   elapsed += dt;
   hud.update();
-  if (!paused) levels[currentLevel].update();
+  if (!paused) levels.get(currentLevel).update();
   
-  levels[currentLevel].display();
+  levels.get(currentLevel).display();
   hud.display();
 }
 
 void mousePressed(){
   hud.mousePressed();
-  levels[currentLevel].mousePressed();
+  levels.get(currentLevel).mousePressed();
 }
 
 void mouseReleased(){
   hud.mouseReleased();
-  levels[currentLevel].mouseReleased();
+  levels.get(currentLevel).mouseReleased();
 }
 
 void keyPressed(){
   Keyboard.handleKeyDown(keyCode);
   hud.keyPressed();
-  levels[currentLevel].keyPressed();
+  levels.get(currentLevel).keyPressed();
 }
 
 
 void keyReleased(){
   Keyboard.handleKeyUp(keyCode);
   hud.keyReleased();
-  levels[currentLevel].keyReleased();
+  levels.get(currentLevel).keyReleased();
   if (key == 'p') paused = !paused;
+  if (key == '.') {
+    currentLevel++;
+    if (currentLevel >= levels.size()) currentLevel = 0;
+  }
 }

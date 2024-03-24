@@ -1,7 +1,7 @@
 {"Level": {
   "actors": {
-    "Tile@2dde6e5f": {
-      "components": {"Rect@fa1a259": {
+    "Tile@f6042dd": {
+      "components": {"Rect@5c547d1a": {
         "parent": {},
         "halfW": 16,
         "h": 32,
@@ -11,54 +11,54 @@
           "y": 0,
           "z": 0
         }},
-        "edgeR": 288,
-        "edgeL": 256,
+        "edgeR": 256,
+        "edgeL": 224,
         "halfH": 16,
         "w": 32,
-        "x": 272,
+        "x": 240,
         "y": 16,
         "edgeB": 32,
-        "id": "9854dfc5-3e6d-4fe9-8cda-203faf7e5d7f"
+        "id": "20fdc645-6587-4194-be58-981cce694afc"
       }},
-      "heldItem": "515dbf38-b2fa-4905-a93b-a5171d68b186",
+      "heldItem": "a871a3b3-3038-4147-862e-ac82977bac87",
       "location": {"PVector": {
-        "x": 272,
+        "x": 240,
         "y": 16,
         "z": 0
       }},
-      "id": "61a5182f-e5db-4be7-b2da-8f3f3d21576c",
+      "id": "383755b1-81da-4d11-a45f-e66d13c3c0ad",
       "actorState": {"ACTOR_STATE": "LEVEL_TYPE.LEVEL"}
     },
-    "Player@43803f43": {
+    "Player@2d372a04": {
       "components": {
-        "Movement@16a75ba1": {
+        "Movement@57913b7d": {
           "parent": {},
-          "moveTime": "a8faa4fb-ea66-4111-a307-998d17fb150f",
+          "moveTime": "93d1fbb2-4478-41d5-b2ee-5b493527346f",
           "isMoving": false,
           "moveAmount": {},
-          "id": "96922685-4b52-49a5-9c46-0f171b19be04",
+          "id": "975c9fff-4237-46ce-9c1c-074b27c7b238",
           "newLocation": {}
         },
-        "Rect@4186a79": {
+        "Rect@6e4a0768": {
           "parent": {},
           "halfW": 16,
           "h": 32,
           "edgeT": 0,
           "localPosition": {},
-          "edgeR": 288,
-          "edgeL": 256,
+          "edgeR": 256,
+          "edgeL": 224,
           "halfH": 16,
           "w": 32,
-          "x": 272,
+          "x": 240,
           "y": 16,
           "edgeB": 32,
-          "id": "3f155111-defd-4dc4-a99b-284e9dfc1eb3"
+          "id": "021f2fbd-1cbf-40c8-b77e-33f28f0263da"
         }
       },
-      "m_Movement": "96922685-4b52-49a5-9c46-0f171b19be04",
-      "m_Rect": "3f155111-defd-4dc4-a99b-284e9dfc1eb3",
+      "m_Movement": "975c9fff-4237-46ce-9c1c-074b27c7b238",
+      "m_Rect": "021f2fbd-1cbf-40c8-b77e-33f28f0263da",
       "location": {},
-      "id": "515dbf38-b2fa-4905-a93b-a5171d68b186",
+      "id": "a871a3b3-3038-4147-862e-ac82977bac87",
       "actorState": {"ACTOR_STATE": "LEVEL_TYPE.LEVEL"}
     }
   },
