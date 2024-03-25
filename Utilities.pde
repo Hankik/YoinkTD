@@ -18,7 +18,8 @@ class Cursor extends Actor {
     stroke(WHITE);
     PVector gridLocation = getGridLocation(location);
     rectMode(CENTER);
-    rect(gridLocation.x, gridLocation.y, TILE_SIZE, TILE_SIZE);
+    float cursorSize = TILE_SIZE - ( mousePressed ? 6 : 0);
+    rect(gridLocation.x, gridLocation.y, cursorSize, cursorSize);
   }
 }
 
