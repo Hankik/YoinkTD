@@ -20,7 +20,7 @@ abstract class Actor implements Updates, Displays { // abstract means you cannot
         // SORRY THIS IS SOME ARCANE SHIT
         // Instantiate the class
         // --------------------- requires we pass in the parameter signature to find the constructor we want ().newInstance( pass in those arguments now );
-        Component component = (Component) type.getDeclaredConstructor(parameterTypes).newInstance(applet, this); // all constructors have a hidden YoinkTD.class instance passed in
+        Component component = (Component) type.getDeclaredConstructor(parameterTypes).newInstance(applet, this); // trivia: all constructors have a hidden YoinkTD.class instance passed in
 
         // Add the component to the list
         components.add(component);

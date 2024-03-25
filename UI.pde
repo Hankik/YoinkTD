@@ -90,6 +90,6 @@ class HUDOverlay extends Actor {
     textAlign(LEFT);
     text("level: " + currentLevel, GRID_X_OFFSET + TILE_SIZE, height - TILE_SIZE);
     PVector mouseGridLocation = getGridLocation(new PVector(mouseX, mouseY));
-    text("x: " + mouseGridLocation.x + ", y: " + mouseGridLocation.y, GRID_X_OFFSET + TILE_SIZE*4, height - TILE_SIZE);
+    text("[x: " + mouseGridLocation.x + ", y: " + mouseGridLocation.y + "]", GRID_X_OFFSET + TILE_SIZE*3, height - TILE_SIZE);
   }
 }
