@@ -1,39 +1,39 @@
 {"Level": {
   "actors": {
-    "Player@3fafd871": {
+    "Player@6653436e": {
       "components": {
-        "Movement@12bbacaa": {
-          "parent": {},
-          "moveTime": "ce8c7995-f530-44b2-8c35-00af48919e9a",
-          "isMoving": false,
-          "moveAmount": {},
-          "id": "4475d380-8196-4d1e-bd11-58e20b68e712",
-          "newLocation": {}
-        },
-        "Rect@61c6cd6": {
+        "Rect@5eea84b9": {
           "parent": {},
           "halfW": 16,
           "h": 32,
           "edgeT": 0,
           "localPosition": {},
-          "edgeR": 256,
-          "edgeL": 224,
+          "edgeR": 288,
+          "edgeL": 256,
           "halfH": 16,
           "w": 32,
-          "x": 240,
+          "x": 272,
           "y": 16,
           "edgeB": 32,
-          "id": "4b0721a9-2a84-48a5-a11a-6c12586a4d20"
+          "id": "d8ff8457-486c-4c73-b8f4-7ed7b87097ef"
+        },
+        "Movement@16e69679": {
+          "parent": {},
+          "moveTime": "6651dc74-e237-416c-8d1a-094556380764",
+          "isMoving": false,
+          "moveAmount": {},
+          "id": "3af07af4-2443-457c-8135-c55e59c13320",
+          "newLocation": {}
         }
       },
-      "m_Movement": "4475d380-8196-4d1e-bd11-58e20b68e712",
-      "m_Rect": "4b0721a9-2a84-48a5-a11a-6c12586a4d20",
+      "m_Movement": "3af07af4-2443-457c-8135-c55e59c13320",
+      "m_Rect": "d8ff8457-486c-4c73-b8f4-7ed7b87097ef",
       "location": {},
-      "id": "9e860333-47e8-4b59-865f-73f9c51b7055",
+      "id": "c60aa786-a107-4989-8282-dca3d0dbe024",
       "actorState": {"ACTOR_STATE": "AWAKE"}
     },
-    "Tile@447b9e01": {
-      "components": {"Rect@1b760b5e": {
+    "Tile@47eeea5": {
+      "components": {"Rect@d4fb9e3": {
         "parent": {},
         "halfW": 16,
         "h": 32,
@@ -43,22 +43,22 @@
           "y": 0,
           "z": 0
         }},
-        "edgeR": 256,
-        "edgeL": 224,
+        "edgeR": 288,
+        "edgeL": 256,
         "halfH": 16,
         "w": 32,
-        "x": 240,
+        "x": 272,
         "y": 16,
         "edgeB": 32,
-        "id": "68f41e7c-6aee-4aef-a527-17992c2b70f6"
+        "id": "21d63f1f-7e63-4268-bb74-e2ac335f1255"
       }},
-      "heldItem": "9e860333-47e8-4b59-865f-73f9c51b7055",
+      "heldItem": "c60aa786-a107-4989-8282-dca3d0dbe024",
       "location": {"PVector": {
-        "x": 240,
+        "x": 272,
         "y": 16,
         "z": 0
       }},
-      "id": "c829e803-9c46-4102-b0b5-73382d76deb6",
+      "id": "07ed8412-0c8d-472c-a439-9c1ed90af359",
       "actorState": {"ACTOR_STATE": "AWAKE"}
     }
   },

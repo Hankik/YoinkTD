@@ -44,10 +44,8 @@ Level createUI(LEVEL_TYPE type) {
     saveToJSONButton.text = "save";
     saveToJSONButton.location = getGridLocation( new PVector( TILE_SIZE, height/2) );
     saveToJSONButton.purposeCallback = () -> {
-    
-      println("\nSaved current level to save2");
-      JSONObject json = serializer.getContents(levels.get(currentLevel));
-      saveJSONObject(json, "data/save2.json");
+      
+      selectOutput("Select a file to write to:", "saveToJSON");
       return false;
     };
     Button loadFromJSONButton = (Button) level.addActor("Button");
@@ -84,12 +82,14 @@ class HUDOverlay extends Actor {
     rect(0, 0, GRID_X_OFFSET, height); 
     rect(width - GRID_X_OFFSET, 0, GRID_X_OFFSET, height);
     
-    fill(WHITE);
+    textSize(TILE_SIZE/2);
+    fill(0);
     textAlign(RIGHT);
     text((paused ? "paused" : ""), width - GRID_X_OFFSET - TILE_SIZE, height - TILE_SIZE);
+    text("[WASD]: MOVE  [.]: NEXT LEVEL  [P]: PAUSE", width - GRID_X_OFFSET - TILE_SIZE, TILE_SIZE);
     textAlign(LEFT);
     text("level: " + currentLevel, GRID_X_OFFSET + TILE_SIZE, height - TILE_SIZE);
     PVector mouseGridLocation = getGridLocation(new PVector(mouseX, mouseY));
-    text("[x: " + mouseGridLocation.x + ", y: " + mouseGridLocation.y + "]", GRID_X_OFFSET + TILE_SIZE*3, height - TILE_SIZE);
+    text("[x: " + (int) mouseGridLocation.x + ", y: " + (int) mouseGridLocation.y + "]", GRID_X_OFFSET + TILE_SIZE*4, height - TILE_SIZE);
   }
 }
