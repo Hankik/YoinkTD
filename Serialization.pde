@@ -1,3 +1,23 @@
+
+void saveToJSON(File selection){
+
+   if (selection == null){
+     println("\nFile selection canceled.");
+     return;
+   }
+   if (!selection.getName().contains(".json")) {
+     println("\nError: Must save to a json file.");
+     return;
+   }
+   
+   try { 
+     JSONObject json = serializer.getContents(levels.get(currentLevel));
+     saveJSONObject(json, selection.getCanonicalPath());
+     println("\nSaved current level to " + selection.getName());
+ }
+   catch(Exception e){}
+}
+
 public class JSONSerializer {
 
   private Set<Object> visitedObjects = new HashSet<>();

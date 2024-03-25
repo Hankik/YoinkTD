@@ -11,8 +11,8 @@ float elapsed = 0.0;
 // TIMESTEP
 
 // TILE GLOBALS //
-final float GRID_X_OFFSET = 224;
 final float TILE_SIZE = 32;
+final float GRID_X_OFFSET = TILE_SIZE * 8;
 /* Use getGridLocation(PVector) to map items into grid */
 // TILE GLOBALS // 
 
