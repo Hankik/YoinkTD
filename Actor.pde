@@ -71,11 +71,11 @@ abstract class Component implements Updates, Displays {
         field.set(this, (Class<?>) value);
       } else {
         switch (type.getName()) {
-        case "boolean":
+          case "boolean":
             field.setBoolean(this, (boolean) value);
           break;
-        case "int":
-          field.setInt(this, (int) value);
+          case "int":
+            field.setInt(this, (int) value);
           break;
         case "float":
           field.setFloat(this, (float) value);
@@ -125,13 +125,13 @@ Actor createActor(String name) {
   catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
     println("\nError instantiating actor: " + e+"\n");
   }
-  
+
   return null;
 }
 
 enum ACTOR_STATE {
 
   AWAKE,
-  ASLEEP,
-  DEAD
+    ASLEEP,
+    DEAD
 }

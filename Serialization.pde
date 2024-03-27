@@ -1,21 +1,22 @@
 
-void saveToJSON(File selection){
+void saveToJSON(File selection) {
 
-   if (selection == null){
-     println("\nFile selection canceled.");
-     return;
-   }
-   if (!selection.getName().contains(".json")) {
-     println("\nError: Must save to a json file.");
-     return;
-   }
-   
-   try { 
-     JSONObject json = serializer.getContents(levels.get(currentLevel));
-     saveJSONObject(json, selection.getCanonicalPath());
-     println("\nSaved current level to " + selection.getName());
- }
-   catch(Exception e){}
+  if (selection == null) {
+    println("\nFile selection canceled.");
+    return;
+  }
+  if (!selection.getName().contains(".json")) {
+    println("\nError: Must save to a json file.");
+    return;
+  }
+
+  try {
+    JSONObject json = serializer.getContents(levels.get(currentLevel));
+    saveJSONObject(json, selection.getCanonicalPath());
+    println("\nSaved current level to " + selection.getName());
+  }
+  catch(Exception e) {
+  }
 }
 
 public class JSONSerializer {
@@ -66,12 +67,12 @@ public class JSONSerializer {
           }
 
           if (field.getName().contains("Callback")) continue;
-          
-          if (fieldType.isEnum()) { 
+
+          if (fieldType.isEnum()) {
             JSONObject subobject = new JSONObject();
-            subobject.setString(fieldType.getSimpleName(), field.get(o).toString()); 
-            contents.setJSONObject(field.getName(), subobject); 
-            continue; 
+            subobject.setString(fieldType.getSimpleName(), field.get(o).toString());
+            contents.setJSONObject(field.getName(), subobject);
+            continue;
           }
 
           //println(fieldType);
@@ -96,7 +97,7 @@ public class JSONSerializer {
             contents.setLong(field.getName(), field.getLong(o));
             break;
           default:
-          
+
             // Add additional handling for other types if needed
             String javaObjectType = fieldType.getName().substring(fieldType.getName().lastIndexOf('.') + 1);
             switch (javaObjectType) {
@@ -206,12 +207,12 @@ void populateActorFields(Actor actor, JSONObject json) {
           field.set( actor, subActor );
           continue;
         }
-        
+
 
         //println(field.getName());
         Object userDefinedObj = (Object) field.get(actor);
-        
-        if (userDefinedObj.getClass().isEnum()){
+
+        if (userDefinedObj.getClass().isEnum()) {
           JSONObject userDefinedObjJSON = (JSONObject) json.get(field.getName());
           String inner = (String) userDefinedObjJSON.get(userDefinedObj.getClass().getSimpleName());
           Class<?> enumType = Class.forName(fieldType.getName());
@@ -219,13 +220,13 @@ void populateActorFields(Actor actor, JSONObject json) {
           userDefinedObj = enumObj;
           continue;
         }
-        
+
         List<Field> userDefinedObjFields = Arrays.asList( userDefinedObj.getClass().getDeclaredFields() );
         JSONObject userDefinedObjJSON = (JSONObject) json.get(field.getName());
-        
+
         // FIX: A lot of special cases like PVector are being handled individually. NOT SCALABLE
         if (PVector.class.isAssignableFrom(fieldType) && userDefinedObjJSON != null) userDefinedObjJSON = (JSONObject) userDefinedObjJSON.get("PVector");
-        
+
         for (Field userDefinedObjField : userDefinedObjFields) {
           //println(userDefinedObjField.getName());
           if (userDefinedObjJSON.get( userDefinedObjField.getName()) != null)
@@ -236,11 +237,11 @@ void populateActorFields(Actor actor, JSONObject json) {
         // we have a userdefined field
       } else {
         switch (fieldType.getName()) {
-        case "boolean":
-          field.set(actor, (boolean) json.get(field.getName()));
+          case "boolean":
+            field.set(actor, (boolean) json.get(field.getName()));
           break;
-        case "int":
-          field.set(actor, (int) json.get(field.getName()));
+          case "int":
+            field.set(actor, (int) json.get(field.getName()));
           break;
         case "float":
           field.set(actor, (float) json.get(field.getName()));
@@ -418,12 +419,13 @@ void populateComponentFields(Component component, JSONObject json) {
 
 // Function to set enum value by string using reflection
 public static <T extends Enum<T>> T setEnumByString(Class<T> enumClass, String value) {
-    try {
-        Method valueOfMethod = enumClass.getMethod("valueOf", String.class);
-        return (T) valueOfMethod.invoke(null, value);
-    } catch (Exception e) {
-        throw new IllegalArgumentException("No such enum constant " + value);
-    }
+  try {
+    Method valueOfMethod = enumClass.getMethod("valueOf", String.class);
+    return (T) valueOfMethod.invoke(null, value);
+  }
+  catch (Exception e) {
+    throw new IllegalArgumentException("No such enum constant " + value);
+  }
 }
 
 boolean isUserDefinedClass(Class<?> type) {
