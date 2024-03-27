@@ -51,6 +51,8 @@ void setup() {
   saveJSONObject(json, "data/save.json");
   
   for (Level level : levels) level.handleCommands(); // handle any important commands gathered in deserialization
+  
+  println(applet);
 }
 
 void draw() {

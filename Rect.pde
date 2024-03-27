@@ -4,6 +4,8 @@ class Rect extends Component {
   PVector localPosition = new PVector();
   float edgeL, edgeR, edgeT, edgeB;
   float halfW, halfH;
+  color fill = -1;
+  float opacity = 1; // 0-1 keep normalized
   
   Rect(Actor parent){
     
@@ -63,7 +65,7 @@ class Rect extends Component {
   void display() {
     
     rectMode(CENTER);
-    noFill();
+    fill(fill, clamp(opacity, 0, 1) * 255);
     stroke(255);
     rectMode(CENTER);
     rect(x, y, w, h, 10);

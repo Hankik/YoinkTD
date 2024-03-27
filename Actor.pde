@@ -2,6 +2,7 @@ abstract class Actor implements Updates, Displays { // abstract means you cannot
 
   String id = UUID.randomUUID().toString();
   PVector location = new PVector(0, 0);
+  
   ArrayList<Object> components = new ArrayList(); // do not add non-component types
   ACTOR_STATE actorState = ACTOR_STATE.AWAKE;
 

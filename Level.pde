@@ -19,6 +19,7 @@ class Level implements Updates, Displays, Listens {
 
     Tile t = (Tile) addActor("Tile");
     Player player = (Player) addActor("Player");
+    addActor("TileMap");
     t.heldItem = new WeakReference(player);
   }
 

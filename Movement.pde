@@ -16,9 +16,10 @@ class Movement extends Component {
     
     moveTime.onTickCallback = () -> { 
       
-      parent.location = PVector.lerp(parent.location, 
+      PVector tempLocation = PVector.lerp(parent.location, 
                                      newLocation, 
                                      moveTime.elapsed/moveTime.duration); 
+      parent.location = new PVector(floor(tempLocation.x), floor(tempLocation.y)); 
       return false; 
     };
     moveTime.onFinishedCallback= () -> {
@@ -40,8 +41,9 @@ class Movement extends Component {
     if (isMoving) {
       if ((moveTime.elapsed / moveTime.duration) < 0.4) return;  // this weirdness is to allow a fast transition between move actions 
       // essentially if passed 40% of the move, teleport to target location and start next move
-      this.parent.location = newLocation;
-      moveTime.onFinishedCallback.call();
+      parent.location = getGridLocation(newLocation);
+      moveTime.isDone = true;
+      moveTime.update();
     }
     this.moveAmount = moveAmount;
     newLocation = PVector.add(this.parent.location, moveAmount);

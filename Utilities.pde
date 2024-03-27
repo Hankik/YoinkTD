@@ -56,6 +56,7 @@ class Timer extends Component {
     
     
     if (timeLeft <= 0) {
+      onTickCallback.call();
       timeLeft = 0;
       elapsed = duration;
       isDone = true;
@@ -135,6 +136,10 @@ float easeInOut(float t, float b, float c, float d) {
       return -.5f * (a * (float) Math.pow(2, 10 * (t -= 1)) * (float) Math.sin((t * d - s) * (2 * (float) Math.PI) / p)) + b;
     return a * (float) Math.pow(2, -10 * (t -= 1)) * (float) Math.sin((t * d - s) * (2 * (float) Math.PI) / p) * .5f + c + b;
   }
+  
+public static float clamp(float val, float min, float max) {
+    return Math.max(min, Math.min(max, val));
+}
 
 // color constants
 final color RED = #bf616a;
