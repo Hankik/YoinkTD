@@ -3,10 +3,13 @@ class Button extends Actor implements Listens {
   String text = "";
   Rect rect;
   ButtonState state = ButtonState.IDLE;
-  Callback purposeCallback = () -> { println("\nbutton does nothing"); return false; };
-  
-  Button(){
-  
+  Callback purposeCallback = () -> {
+    println("\nbutton does nothing");
+    return false;
+  };
+
+  Button() {
+
     PVector startPosition = getGridLocation( new PVector(width/2, height/2) );
     location = new PVector(startPosition.x, startPosition.y);
     rect = (Rect) addComponent("Rect");
@@ -76,19 +79,19 @@ class Button extends Actor implements Listens {
   }
 
   void display() {
-    
+
     switch (state) {
-    
-      case IDLE:
+
+    case IDLE:
       fill(LIGHTBLUE);
       break;
-      case HOVERED:
+    case HOVERED:
       fill(BLUE);
       break;
-      case PRESSED:
+    case PRESSED:
       fill(DARKBLUE);
       break;
-      case RELEASED:
+    case RELEASED:
       fill(DARKBLUE);
       break;
     }
@@ -118,9 +121,11 @@ class Button extends Actor implements Listens {
       state = ButtonState.RELEASED;
     }
   }
-  
-  void keyPressed(){}
-  void keyReleased(){}
+
+  void keyPressed() {
+  }
+  void keyReleased() {
+  }
 }
 
 enum ButtonState {
