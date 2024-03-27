@@ -143,7 +143,7 @@ public class JSONSerializer {
 Scene createLevel(JSONObject json) {
 
   Scene level = new Scene(LEVEL_TYPE.LEVEL);
-  JSONObject levelFields = (JSONObject) ((JSONObject) json.get("Level")).get("actors");
+  JSONObject levelFields = (JSONObject) ((JSONObject) json.get("Scene")).get("actors");
 
   for (Object key : levelFields.keys()) {
     // Get value based on key

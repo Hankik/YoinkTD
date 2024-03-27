@@ -1,392 +1,11 @@
-{"Level": {
+{"Scene": {
   "actors": {
-    "Button@6156e11d": {
-      "rect": "c33c15ce-64e2-4f55-8e3e-54b9165a2555",
-      "components": {"Rect@2845edb0": {
+    "Tile@4d4bb965": {
+      "rect": "bd6a0b1b-0e9e-4f42-9221-9325515bb67b",
+      "components": {"Rect@5ca9e14c": {
         "parent": {},
         "halfW": 16,
-        "h": 32,
-        "edgeT": 128,
-        "localPosition": {},
-        "edgeR": 736,
-        "edgeL": 704,
-        "halfH": 16,
-        "w": 32,
-        "x": 720,
-        "y": 144,
-        "edgeB": 160,
-        "id": "c33c15ce-64e2-4f55-8e3e-54b9165a2555"
-      }},
-      "location": {"PVector": {
-        "x": 720,
-        "y": 144,
-        "z": 0
-      }},
-      "text": "-",
-      "state": {"ButtonState": "IDLE"},
-      "id": "68d9c5c0-0ac8-4b42-8ec3-b44368fcd6b2",
-      "actorState": {"ACTOR_STATE": "AWAKE"}
-    },
-    "Button@1e17e1d0": {
-      "rect": "dced1c8f-1138-4717-9591-e606df764928",
-      "components": {"Rect@616b80e6": {
-        "parent": {},
-        "halfW": 16,
-        "h": 32,
-        "edgeT": 192,
-        "localPosition": {},
-        "edgeR": 640,
-        "edgeL": 608,
-        "halfH": 16,
-        "w": 32,
-        "x": 624,
-        "y": 208,
-        "edgeB": 224,
-        "id": "dced1c8f-1138-4717-9591-e606df764928"
-      }},
-      "location": {"PVector": {
-        "x": 624,
-        "y": 208,
-        "z": 0
-      }},
-      "text": "-",
-      "state": {"ButtonState": "IDLE"},
-      "id": "0d6e6c46-f07a-46d4-87b0-e9b6337703ae",
-      "actorState": {"ACTOR_STATE": "AWAKE"}
-    },
-    "Button@62c573e6": {
-      "rect": "3f8acb8f-08b3-44ee-8097-4b96eba67996",
-      "components": {"Rect@41fd4bbe": {
-        "parent": {},
-        "halfW": 16,
-        "h": 32,
-        "edgeT": 32,
-        "localPosition": {},
-        "edgeR": 800,
-        "edgeL": 768,
-        "halfH": 16,
-        "w": 32,
-        "x": 784,
-        "y": 48,
-        "edgeB": 64,
-        "id": "3f8acb8f-08b3-44ee-8097-4b96eba67996"
-      }},
-      "location": {"PVector": {
-        "x": 784,
-        "y": 48,
-        "z": 0
-      }},
-      "text": "-",
-      "state": {"ButtonState": "IDLE"},
-      "id": "a689423f-65e5-4ae4-be95-6e55a2d28dc7",
-      "actorState": {"ACTOR_STATE": "AWAKE"}
-    },
-    "Button@7930c675": {
-      "rect": "9e2aab1a-dff9-4aef-8e86-2dcb1d754b9f",
-      "components": {"Rect@5dab1b17": {
-        "parent": {},
-        "halfW": 16,
-        "h": 32,
-        "edgeT": 352,
-        "localPosition": {},
-        "edgeR": 704,
-        "edgeL": 672,
-        "halfH": 16,
-        "w": 32,
-        "x": 688,
-        "y": 368,
-        "edgeB": 384,
-        "id": "9e2aab1a-dff9-4aef-8e86-2dcb1d754b9f"
-      }},
-      "location": {"PVector": {
-        "x": 688,
-        "y": 368,
-        "z": 0
-      }},
-      "text": "-",
-      "state": {"ButtonState": "IDLE"},
-      "id": "2642dad6-3b5a-47cd-8e25-1910375a7c07",
-      "actorState": {"ACTOR_STATE": "AWAKE"}
-    },
-    "Button@37b1d572": {
-      "rect": "f7fbfca4-06d1-4fdd-a154-d2877837afe4",
-      "components": {"Rect@7b65af94": {
-        "parent": {},
-        "halfW": 16,
-        "h": 32,
-        "edgeT": 288,
-        "localPosition": {},
-        "edgeR": 992,
-        "edgeL": 960,
-        "halfH": 16,
-        "w": 32,
-        "x": 976,
-        "y": 304,
-        "edgeB": 320,
-        "id": "f7fbfca4-06d1-4fdd-a154-d2877837afe4"
-      }},
-      "location": {"PVector": {
-        "x": 976,
-        "y": 304,
-        "z": 0
-      }},
-      "text": "-",
-      "state": {"ButtonState": "IDLE"},
-      "id": "d2be7f2e-7a46-41e4-a156-abdf5f2122dc",
-      "actorState": {"ACTOR_STATE": "AWAKE"}
-    },
-    "Button@7237c5f7": {
-      "rect": "d556b1c9-2072-44e4-beb6-cb4ec0bd9758",
-      "components": {"Rect@538fa737": {
-        "parent": {},
-        "halfW": 16,
-        "h": 32,
-        "edgeT": 576,
-        "localPosition": {},
-        "edgeR": 576,
-        "edgeL": 544,
-        "halfH": 16,
-        "w": 32,
-        "x": 560,
-        "y": 592,
-        "edgeB": 608,
-        "id": "d556b1c9-2072-44e4-beb6-cb4ec0bd9758"
-      }},
-      "location": {"PVector": {
-        "x": 560,
-        "y": 592,
-        "z": 0
-      }},
-      "text": "-",
-      "state": {"ButtonState": "IDLE"},
-      "id": "60dce696-ef8e-4206-8607-1ab91a124670",
-      "actorState": {"ACTOR_STATE": "AWAKE"}
-    },
-    "Player@7115c769": {
-      "components": {
-        "Rect@5dee2bfa": {
-          "parent": {},
-          "halfW": 16,
-          "h": 32,
-          "edgeT": 0,
-          "localPosition": {},
-          "edgeR": 288,
-          "edgeL": 256,
-          "halfH": 16,
-          "w": 32,
-          "x": 272,
-          "y": 16,
-          "edgeB": 32,
-          "id": "0b82c682-a268-458b-8675-b9ff5c22af9b"
-        },
-        "Movement@4d6b2eda": {
-          "parent": {},
-          "moveTime": "97c3b6a5-70c9-436e-a147-986bfdb4993b",
-          "isMoving": false,
-          "moveAmount": {},
-          "id": "6021f7eb-0945-4b75-8bd4-b9f100dbc3d3",
-          "newLocation": {}
-        }
-      },
-      "m_Movement": "6021f7eb-0945-4b75-8bd4-b9f100dbc3d3",
-      "m_Rect": "0b82c682-a268-458b-8675-b9ff5c22af9b",
-      "location": {},
-      "id": "09dc05b3-b6ab-4af9-8aa5-ffce2aa3023e",
-      "actorState": {"ACTOR_STATE": "AWAKE"}
-    },
-    "Button@ea1f298": {
-      "rect": "509f5c16-c957-42bb-a391-9060a7a9632b",
-      "components": {"Rect@6fd1e1d6": {
-        "parent": {},
-        "halfW": 16,
-        "h": 32,
-        "edgeT": 0,
-        "localPosition": {},
-        "edgeR": 480,
-        "edgeL": 448,
-        "halfH": 16,
-        "w": 32,
-        "x": 464,
-        "y": 16,
-        "edgeB": 32,
-        "id": "509f5c16-c957-42bb-a391-9060a7a9632b"
-      }},
-      "location": {"PVector": {
-        "x": 464,
-        "y": 16,
-        "z": 0
-      }},
-      "text": "-",
-      "state": {"ButtonState": "IDLE"},
-      "id": "9b0bf6b7-fce0-4e77-a615-578bf9dc1b9e",
-      "actorState": {"ACTOR_STATE": "AWAKE"}
-    },
-    "Button@641d5cd1": {
-      "rect": "df639649-f37a-495b-b9f9-8322006d2ed1",
-      "components": {"Rect@1aac8ddd": {
-        "parent": {},
-        "halfW": 16,
-        "h": 32,
-        "edgeT": 320,
-        "localPosition": {},
-        "edgeR": 416,
-        "edgeL": 384,
-        "halfH": 16,
-        "w": 32,
-        "x": 400,
-        "y": 336,
-        "edgeB": 352,
-        "id": "df639649-f37a-495b-b9f9-8322006d2ed1"
-      }},
-      "location": {"PVector": {
-        "x": 400,
-        "y": 336,
-        "z": 0
-      }},
-      "text": "-",
-      "state": {"ButtonState": "IDLE"},
-      "id": "a5800435-6618-4f46-8d0d-dd2b0649199b",
-      "actorState": {"ACTOR_STATE": "AWAKE"}
-    },
-    "Button@9455bdc": {
-      "rect": "2e6f9e97-580e-4ece-8f96-6f1651b355c1",
-      "components": {"Rect@208de3d9": {
-        "parent": {},
-        "halfW": 16,
-        "h": 32,
-        "edgeT": 128,
-        "localPosition": {},
-        "edgeR": 768,
-        "edgeL": 736,
-        "halfH": 16,
-        "w": 32,
-        "x": 752,
-        "y": 144,
-        "edgeB": 160,
-        "id": "2e6f9e97-580e-4ece-8f96-6f1651b355c1"
-      }},
-      "location": {"PVector": {
-        "x": 752,
-        "y": 144,
-        "z": 0
-      }},
-      "text": "-",
-      "state": {"ButtonState": "IDLE"},
-      "id": "86af2e9c-dd0f-4713-869d-cead80b3475f",
-      "actorState": {"ACTOR_STATE": "AWAKE"}
-    },
-    "Button@557d0c13": {
-      "rect": "198d02c0-c7f4-43cf-a696-4156ccd451b0",
-      "components": {"Rect@488b580e": {
-        "parent": {},
-        "halfW": 16,
-        "h": 32,
-        "edgeT": 512,
-        "localPosition": {},
-        "edgeR": 736,
-        "edgeL": 704,
-        "halfH": 16,
-        "w": 32,
-        "x": 720,
-        "y": 528,
-        "edgeB": 544,
-        "id": "198d02c0-c7f4-43cf-a696-4156ccd451b0"
-      }},
-      "location": {"PVector": {
-        "x": 720,
-        "y": 528,
-        "z": 0
-      }},
-      "text": "-",
-      "state": {"ButtonState": "IDLE"},
-      "id": "507abaea-5dd4-40fc-b35d-039271a9b39c",
-      "actorState": {"ACTOR_STATE": "AWAKE"}
-    },
-    "Button@29a40f80": {
-      "rect": "1e0c11f4-6582-4d82-a41f-90c20389a20c",
-      "components": {"Rect@46f7a75c": {
-        "parent": {},
-        "halfW": 16,
-        "h": 32,
-        "edgeT": 416,
-        "localPosition": {},
-        "edgeR": 896,
-        "edgeL": 864,
-        "halfH": 16,
-        "w": 32,
-        "x": 880,
-        "y": 432,
-        "edgeB": 448,
-        "id": "1e0c11f4-6582-4d82-a41f-90c20389a20c"
-      }},
-      "location": {"PVector": {
-        "x": 880,
-        "y": 432,
-        "z": 0
-      }},
-      "text": "-",
-      "state": {"ButtonState": "IDLE"},
-      "id": "9dc3054a-4be4-489f-a4ac-db04c1267b7f",
-      "actorState": {"ACTOR_STATE": "AWAKE"}
-    },
-    "Button@57253d44": {
-      "rect": "f338a2b8-6af3-421e-9aca-d9b9492b555c",
-      "components": {"Rect@736203a5": {
-        "parent": {},
-        "halfW": 16,
-        "h": 32,
-        "edgeT": 512,
-        "localPosition": {},
-        "edgeR": 672,
-        "edgeL": 640,
-        "halfH": 16,
-        "w": 32,
-        "x": 656,
-        "y": 528,
-        "edgeB": 544,
-        "id": "f338a2b8-6af3-421e-9aca-d9b9492b555c"
-      }},
-      "location": {"PVector": {
-        "x": 656,
-        "y": 528,
-        "z": 0
-      }},
-      "text": "-",
-      "state": {"ButtonState": "IDLE"},
-      "id": "3ab633f3-9adb-453e-b115-ffcbc3ad122a",
-      "actorState": {"ACTOR_STATE": "AWAKE"}
-    },
-    "Button@75cb8559": {
-      "rect": "097a3c11-1d51-4344-86bf-c2b5a920ffba",
-      "components": {"Rect@1b579a25": {
-        "parent": {},
-        "halfW": 16,
-        "h": 32,
-        "edgeT": 608,
-        "localPosition": {},
-        "edgeR": 672,
-        "edgeL": 640,
-        "halfH": 16,
-        "w": 32,
-        "x": 656,
-        "y": 624,
-        "edgeB": 640,
-        "id": "097a3c11-1d51-4344-86bf-c2b5a920ffba"
-      }},
-      "location": {"PVector": {
-        "x": 656,
-        "y": 624,
-        "z": 0
-      }},
-      "text": "-",
-      "state": {"ButtonState": "IDLE"},
-      "id": "09ea64b2-6c5d-4aca-93e8-45cdff5ea9f5",
-      "actorState": {"ACTOR_STATE": "AWAKE"}
-    },
-    "Tile@38565549": {
-      "components": {"Rect@2dc52cdf": {
-        "parent": {},
-        "halfW": 16,
+        "fillOpacity": 0,
         "h": 32,
         "edgeT": 0,
         "localPosition": {"PVector": {
@@ -395,103 +14,463 @@
           "z": 0
         }},
         "edgeR": 288,
+        "fill": 0,
+        "stroke": -6046068,
         "edgeL": 256,
         "halfH": 16,
         "w": 32,
         "x": 272,
         "y": 16,
         "edgeB": 32,
-        "id": "363287e7-56c9-4dca-8538-bdec0ecaba8a"
+        "id": "bd6a0b1b-0e9e-4f42-9221-9325515bb67b",
+        "strokeOpacity": 1
       }},
-      "heldItem": "09dc05b3-b6ab-4af9-8aa5-ffce2aa3023e",
+      "heldItem": "d2983930-c1e4-4c98-bb90-bb185f9abafa",
       "location": {"PVector": {
         "x": 272,
         "y": 16,
         "z": 0
       }},
-      "id": "280364be-2eef-4d26-919c-e5ea7b0d6ae1",
+      "id": "fe5876f5-a1a3-4784-871a-a31d85497a99",
       "actorState": {"ACTOR_STATE": "AWAKE"}
     },
-    "Button@2804501f": {
-      "rect": "ef12d41c-58cb-4b3c-864c-149077eff012",
-      "components": {"Rect@6979b34e": {
+    "Player@62052b94": {
+      "rect": "28e4cda7-4233-46cb-9572-0df96c729852",
+      "components": {
+        "Rect@5eccad1f": {
+          "parent": {},
+          "halfW": 16,
+          "fillOpacity": 0,
+          "h": 32,
+          "edgeT": 0,
+          "localPosition": {},
+          "edgeR": 288,
+          "fill": 0,
+          "stroke": -1249292,
+          "edgeL": 256,
+          "halfH": 16,
+          "w": 32,
+          "x": 272,
+          "y": 16,
+          "edgeB": 32,
+          "id": "28e4cda7-4233-46cb-9572-0df96c729852",
+          "strokeOpacity": 1
+        },
+        "Movement@6e286a21": {
+          "parent": {},
+          "moveTime": "996a9ce0-8dd0-4bfc-ab8a-f0d1219c4a8f",
+          "isMoving": false,
+          "moveAmount": {},
+          "id": "ef99f443-977c-4097-81fa-320e88e3e4e1",
+          "newLocation": {}
+        }
+      },
+      "location": {},
+      "id": "d2983930-c1e4-4c98-bb90-bb185f9abafa",
+      "actorState": {"ACTOR_STATE": "AWAKE"},
+      "movement": "ef99f443-977c-4097-81fa-320e88e3e4e1"
+    },
+    "Button@31de2dc4": {
+      "rect": "697d57dd-01d4-4776-bd9b-0aabe5feb624",
+      "components": {"Rect@13b529af": {
         "parent": {},
         "halfW": 16,
+        "fillOpacity": 1,
         "h": 32,
-        "edgeT": 544,
+        "edgeT": 64,
         "localPosition": {},
-        "edgeR": 416,
-        "edgeL": 384,
+        "edgeR": 352,
+        "fill": 0,
+        "stroke": -1249292,
+        "edgeL": 320,
         "halfH": 16,
         "w": 32,
-        "x": 400,
-        "y": 560,
-        "edgeB": 576,
-        "id": "ef12d41c-58cb-4b3c-864c-149077eff012"
+        "x": 336,
+        "y": 80,
+        "edgeB": 96,
+        "id": "697d57dd-01d4-4776-bd9b-0aabe5feb624",
+        "strokeOpacity": 1
       }},
       "location": {"PVector": {
-        "x": 400,
-        "y": 560,
+        "x": 336,
+        "y": 80,
         "z": 0
       }},
       "text": "-",
       "state": {"ButtonState": "IDLE"},
-      "id": "5be8a167-f163-4000-a712-b868203a2e80",
+      "id": "77b1de86-7ef0-42c8-9c33-10c326b6d78b",
       "actorState": {"ACTOR_STATE": "AWAKE"}
     },
-    "Button@3cee6cc": {
-      "rect": "33feb558-fb76-4776-927d-91d9a73afd71",
-      "components": {"Rect@2faf139": {
+    "Button@111339e4": {
+      "rect": "26e3b12f-9d96-4991-9da7-e0cb694bbc9f",
+      "components": {"Rect@35f3304": {
         "parent": {},
         "halfW": 16,
+        "fillOpacity": 1,
         "h": 32,
-        "edgeT": 640,
+        "edgeT": 192,
         "localPosition": {},
-        "edgeR": 320,
-        "edgeL": 288,
+        "edgeR": 768,
+        "fill": 0,
+        "stroke": -1249292,
+        "edgeL": 736,
         "halfH": 16,
         "w": 32,
-        "x": 304,
-        "y": 656,
-        "edgeB": 672,
-        "id": "33feb558-fb76-4776-927d-91d9a73afd71"
+        "x": 752,
+        "y": 208,
+        "edgeB": 224,
+        "id": "26e3b12f-9d96-4991-9da7-e0cb694bbc9f",
+        "strokeOpacity": 1
       }},
       "location": {"PVector": {
-        "x": 304,
-        "y": 656,
+        "x": 752,
+        "y": 208,
         "z": 0
       }},
       "text": "-",
       "state": {"ButtonState": "IDLE"},
-      "id": "d1f15637-c7a4-47e1-ba2a-023028c35de8",
+      "id": "1186241d-e1b0-41df-b25e-df8691f31d23",
       "actorState": {"ACTOR_STATE": "AWAKE"}
     },
-    "Button@6ede66ba": {
-      "rect": "9d320fb1-0b49-4581-9c74-33a15ff8b28d",
-      "components": {"Rect@60ab45aa": {
+    "Button@38334f42": {
+      "rect": "a793e510-e07a-4cf0-a1b2-768ad0db40ae",
+      "components": {"Rect@43372995": {
         "parent": {},
         "halfW": 16,
+        "fillOpacity": 1,
         "h": 32,
-        "edgeT": 608,
+        "edgeT": 224,
         "localPosition": {},
         "edgeR": 864,
+        "fill": 0,
+        "stroke": -1249292,
         "edgeL": 832,
         "halfH": 16,
         "w": 32,
         "x": 848,
-        "y": 624,
-        "edgeB": 640,
-        "id": "9d320fb1-0b49-4581-9c74-33a15ff8b28d"
+        "y": 240,
+        "edgeB": 256,
+        "id": "a793e510-e07a-4cf0-a1b2-768ad0db40ae",
+        "strokeOpacity": 1
       }},
       "location": {"PVector": {
         "x": 848,
-        "y": 624,
+        "y": 240,
         "z": 0
       }},
       "text": "-",
       "state": {"ButtonState": "IDLE"},
-      "id": "f5b05c55-e2a7-4156-9f9e-1e7daff52aed",
+      "id": "0d28f051-bdf1-4e29-85b7-edb193abc9db",
       "actorState": {"ACTOR_STATE": "AWAKE"}
+    },
+    "Button@6934de9d": {
+      "rect": "b1a1c6d2-eef7-4870-97fb-2d0f62a31a18",
+      "components": {"Rect@70eb9a60": {
+        "parent": {},
+        "halfW": 16,
+        "fillOpacity": 1,
+        "h": 32,
+        "edgeT": 704,
+        "localPosition": {},
+        "edgeR": 288,
+        "fill": 0,
+        "stroke": -1249292,
+        "edgeL": 256,
+        "halfH": 16,
+        "w": 32,
+        "x": 272,
+        "y": 720,
+        "edgeB": 736,
+        "id": "b1a1c6d2-eef7-4870-97fb-2d0f62a31a18",
+        "strokeOpacity": 1
+      }},
+      "location": {"PVector": {
+        "x": 272,
+        "y": 720,
+        "z": 0
+      }},
+      "text": "-",
+      "state": {"ButtonState": "IDLE"},
+      "id": "1a6638c2-96a9-4217-84fe-ecb3b12df61b",
+      "actorState": {"ACTOR_STATE": "AWAKE"}
+    },
+    "Button@46f89e3e": {
+      "rect": "f40f6575-9ad9-4cb3-869b-f70cace34e03",
+      "components": {"Rect@24c15d14": {
+        "parent": {},
+        "halfW": 16,
+        "fillOpacity": 1,
+        "h": 32,
+        "edgeT": 416,
+        "localPosition": {},
+        "edgeR": 608,
+        "fill": 0,
+        "stroke": -1249292,
+        "edgeL": 576,
+        "halfH": 16,
+        "w": 32,
+        "x": 592,
+        "y": 432,
+        "edgeB": 448,
+        "id": "f40f6575-9ad9-4cb3-869b-f70cace34e03",
+        "strokeOpacity": 1
+      }},
+      "location": {"PVector": {
+        "x": 592,
+        "y": 432,
+        "z": 0
+      }},
+      "text": "-",
+      "state": {"ButtonState": "IDLE"},
+      "id": "1734f2ad-1c8a-4243-a68a-5b90650a75e9",
+      "actorState": {"ACTOR_STATE": "AWAKE"}
+    },
+    "Button@3d1f9f8d": {
+      "rect": "7df69c98-550d-416f-a411-5f5f9c01d695",
+      "components": {"Rect@3f94ef2f": {
+        "parent": {},
+        "halfW": 16,
+        "fillOpacity": 1,
+        "h": 32,
+        "edgeT": 576,
+        "localPosition": {},
+        "edgeR": 576,
+        "fill": 0,
+        "stroke": -1249292,
+        "edgeL": 544,
+        "halfH": 16,
+        "w": 32,
+        "x": 560,
+        "y": 592,
+        "edgeB": 608,
+        "id": "7df69c98-550d-416f-a411-5f5f9c01d695",
+        "strokeOpacity": 1
+      }},
+      "location": {"PVector": {
+        "x": 560,
+        "y": 592,
+        "z": 0
+      }},
+      "text": "-",
+      "state": {"ButtonState": "IDLE"},
+      "id": "f8e7284d-02ff-48a1-8767-d28a4a285f8a",
+      "actorState": {"ACTOR_STATE": "AWAKE"}
+    },
+    "Button@5d53b0d2": {
+      "rect": "6907f605-af49-4177-b74a-835998c21556",
+      "components": {"Rect@4ecc1a5c": {
+        "parent": {},
+        "halfW": 16,
+        "fillOpacity": 1,
+        "h": 32,
+        "edgeT": 640,
+        "localPosition": {},
+        "edgeR": 384,
+        "fill": 0,
+        "stroke": -1249292,
+        "edgeL": 352,
+        "halfH": 16,
+        "w": 32,
+        "x": 368,
+        "y": 656,
+        "edgeB": 672,
+        "id": "6907f605-af49-4177-b74a-835998c21556",
+        "strokeOpacity": 1
+      }},
+      "location": {"PVector": {
+        "x": 368,
+        "y": 656,
+        "z": 0
+      }},
+      "text": "-",
+      "state": {"ButtonState": "IDLE"},
+      "id": "44b70f15-ba1c-4bc9-8d84-b7f0d50976cf",
+      "actorState": {"ACTOR_STATE": "AWAKE"}
+    },
+    "Button@16a1fcfc": {
+      "rect": "a3598881-0c2a-4bb6-bf70-37639179ba81",
+      "components": {"Rect@5783e276": {
+        "parent": {},
+        "halfW": 16,
+        "fillOpacity": 1,
+        "h": 32,
+        "edgeT": 96,
+        "localPosition": {},
+        "edgeR": 384,
+        "fill": 0,
+        "stroke": -1249292,
+        "edgeL": 352,
+        "halfH": 16,
+        "w": 32,
+        "x": 368,
+        "y": 112,
+        "edgeB": 128,
+        "id": "a3598881-0c2a-4bb6-bf70-37639179ba81",
+        "strokeOpacity": 1
+      }},
+      "location": {"PVector": {
+        "x": 368,
+        "y": 112,
+        "z": 0
+      }},
+      "text": "-",
+      "state": {"ButtonState": "IDLE"},
+      "id": "71399b1d-c746-4b6b-b37d-7c0b704858ad",
+      "actorState": {"ACTOR_STATE": "AWAKE"}
+    },
+    "Button@28777f68": {
+      "rect": "e257f0ac-0e46-4d34-adab-ad71c3266b3c",
+      "components": {"Rect@6887dfb1": {
+        "parent": {},
+        "halfW": 16,
+        "fillOpacity": 1,
+        "h": 32,
+        "edgeT": 352,
+        "localPosition": {},
+        "edgeR": 928,
+        "fill": 0,
+        "stroke": -1249292,
+        "edgeL": 896,
+        "halfH": 16,
+        "w": 32,
+        "x": 912,
+        "y": 368,
+        "edgeB": 384,
+        "id": "e257f0ac-0e46-4d34-adab-ad71c3266b3c",
+        "strokeOpacity": 1
+      }},
+      "location": {"PVector": {
+        "x": 912,
+        "y": 368,
+        "z": 0
+      }},
+      "text": "-",
+      "state": {"ButtonState": "IDLE"},
+      "id": "634ed81b-9bae-44a6-b0ba-c44d44cf87d0",
+      "actorState": {"ACTOR_STATE": "AWAKE"}
+    },
+    "Button@4f769120": {
+      "rect": "81d53e97-0252-43ac-946c-46f4ea26d17f",
+      "components": {"Rect@47224c39": {
+        "parent": {},
+        "halfW": 16,
+        "fillOpacity": 1,
+        "h": 32,
+        "edgeT": 256,
+        "localPosition": {},
+        "edgeR": 896,
+        "fill": 0,
+        "stroke": -1249292,
+        "edgeL": 864,
+        "halfH": 16,
+        "w": 32,
+        "x": 880,
+        "y": 272,
+        "edgeB": 288,
+        "id": "81d53e97-0252-43ac-946c-46f4ea26d17f",
+        "strokeOpacity": 1
+      }},
+      "location": {"PVector": {
+        "x": 880,
+        "y": 272,
+        "z": 0
+      }},
+      "text": "-",
+      "state": {"ButtonState": "IDLE"},
+      "id": "1e4761fe-bc69-45ba-842e-bd8c19d03aec",
+      "actorState": {"ACTOR_STATE": "AWAKE"}
+    },
+    "Button@52456c07": {
+      "rect": "5bb1bdbb-ef08-4c33-8e1e-40b652780fd2",
+      "components": {"Rect@1d4a9905": {
+        "parent": {},
+        "halfW": 16,
+        "fillOpacity": 1,
+        "h": 32,
+        "edgeT": 480,
+        "localPosition": {},
+        "edgeR": 544,
+        "fill": 0,
+        "stroke": -1249292,
+        "edgeL": 512,
+        "halfH": 16,
+        "w": 32,
+        "x": 528,
+        "y": 496,
+        "edgeB": 512,
+        "id": "5bb1bdbb-ef08-4c33-8e1e-40b652780fd2",
+        "strokeOpacity": 1
+      }},
+      "location": {"PVector": {
+        "x": 528,
+        "y": 496,
+        "z": 0
+      }},
+      "text": "-",
+      "state": {"ButtonState": "IDLE"},
+      "id": "b45020a8-d68c-4795-9a8f-c18595751bed",
+      "actorState": {"ACTOR_STATE": "AWAKE"}
+    },
+    "Button@3f5f57a2": {
+      "rect": "d65e483e-70f1-4eb1-8c16-790c48c7bf0b",
+      "components": {"Rect@153efcbe": {
+        "parent": {},
+        "halfW": 16,
+        "fillOpacity": 1,
+        "h": 32,
+        "edgeT": 576,
+        "localPosition": {},
+        "edgeR": 544,
+        "fill": 0,
+        "stroke": -1249292,
+        "edgeL": 512,
+        "halfH": 16,
+        "w": 32,
+        "x": 528,
+        "y": 592,
+        "edgeB": 608,
+        "id": "d65e483e-70f1-4eb1-8c16-790c48c7bf0b",
+        "strokeOpacity": 1
+      }},
+      "location": {"PVector": {
+        "x": 528,
+        "y": 592,
+        "z": 0
+      }},
+      "text": "-",
+      "state": {"ButtonState": "IDLE"},
+      "id": "a111f450-6528-452d-baa4-2c182a019b99",
+      "actorState": {"ACTOR_STATE": "AWAKE"}
+    },
+    "TileMap@6459dcc6": {
+      "components": {"Rect@2fcb1b20": {
+        "parent": {},
+        "halfW": 384,
+        "fillOpacity": 0.25,
+        "h": 736,
+        "edgeT": 0,
+        "localPosition": {},
+        "edgeR": 1024,
+        "fill": -12893614,
+        "stroke": -1249292,
+        "edgeL": 256,
+        "halfH": 368,
+        "w": 768,
+        "x": 640,
+        "y": 368,
+        "edgeB": 736,
+        "id": "2f3b4c5d-6a6a-4dd2-9bab-70d4245db8a3",
+        "strokeOpacity": 1
+      }},
+      "MAP_HEIGHT": 23,
+      "location": {"PVector": {
+        "x": 640,
+        "y": 368,
+        "z": 0
+      }},
+      "id": "e276a846-0d6c-4877-9592-a658a0a8d54d",
+      "actorState": {"ACTOR_STATE": "AWAKE"},
+      "MAP_WIDTH": 24
     }
   },
   "type": {"LEVEL_TYPE": "LEVEL"},

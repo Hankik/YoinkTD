@@ -63,6 +63,7 @@ void draw() {
   prevTime = currTime;
   
   elapsed += dt;
+  
   hud.update();
   if (!paused) levels.get(currentLevel).update();
   
