@@ -140,9 +140,9 @@ public class JSONSerializer {
 }
 
 
-Level createLevel(JSONObject json) {
+Scene createLevel(JSONObject json) {
 
-  Level level = new Level(LEVEL_TYPE.LEVEL);
+  Scene level = new Scene(LEVEL_TYPE.LEVEL);
   JSONObject levelFields = (JSONObject) ((JSONObject) json.get("Level")).get("actors");
 
   for (Object key : levelFields.keys()) {
@@ -269,7 +269,7 @@ void populateActorFields(Actor actor, JSONObject json) {
             if (!field.getName().equals("id") && foundString.matches("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")) { //uuid check
               //for
 
-              for (Level level : levels) {
+              for (Scene level : levels) {
 
                 for (Object a : level.actors) {
                   Actor levelActor = (Actor) a;
@@ -379,7 +379,7 @@ void populateComponentFields(Component component, JSONObject json) {
           case "String":
             String foundString = json.get(field.getName()).toString();
             if (foundString.matches("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")) { //uuid check
-              for (Level level : levels) {
+              for (Scene level : levels) {
 
                 for (Object a : level.actors) {
                   Actor levelActor = (Actor) a;

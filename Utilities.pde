@@ -1,19 +1,19 @@
 
 // IMPORTANT
 PVector getGridLocation(PVector location) {
-  return new PVector( floor(location.x / TILE_SIZE) * TILE_SIZE + TILE_SIZE/2,
-    floor(location.y / TILE_SIZE) * TILE_SIZE + TILE_SIZE/2);
+  return new PVector( floor(location.x / TILE_SIZE) * TILE_SIZE + TILE_SIZE/2, 
+                      floor(location.y / TILE_SIZE) * TILE_SIZE + TILE_SIZE/2);
 }
 
 class Cursor extends Actor {
-
+  
   WeakReference<Actor> heldActor = new WeakReference(null);
-
-  void update() {
+  
+  void update(){
     location = new PVector(mouseX, mouseY);
   }
-
-  void display() {
+  
+  void display(){
     noFill();
     stroke(WHITE);
     PVector gridLocation = getGridLocation(location);
@@ -31,65 +31,64 @@ class Timer extends Component {
   boolean isDone = true;
   boolean autoRestart = false;
   boolean paused = false;
-  Callback onTickCallback = () -> {
-    return true;
-  };
-  Callback onFinishedCallback = () -> {
-    return true;
-  };
-
-  Timer(Actor parent) {
-
-
+  Callback onTickCallback = () -> { return true; };
+  Callback onFinishedCallback = () -> {  return true;};
+  
+  Timer(Actor parent){
+  
+    
     this.parent = parent;
     timeLeft = duration;
     isDone = false;
   }
-
+  
   Timer(float duration) {
-
+  
     this.duration = duration;
     this.timeLeft = duration;
     isDone = false;
+    
   }
-
-  void update() {
-
+  
+  void update(){
+  
     if (this.paused) return;
-
-
+    
+    
     if (timeLeft <= 0) {
+      onTickCallback.call();
       timeLeft = 0;
       elapsed = duration;
       isDone = true;
-
+      
       onFinishedCallback.call();
       if (autoRestart) reset();
+      
     } else {
-
+    
       if (!isDone) {
 
-
+        
         timeLeft -= dt;
         elapsed += dt;
-
+        
         onTickCallback.call();
       }
     }
   }
-
-  void display() {
-  }
-
-  void reset() {
-
+  
+  void display(){}
+  
+  void reset(){
+    
     timeLeft = duration;
     elapsed = 0;
     isDone = false;
+    
   }
-
-  void togglePause() {
-
+  
+  void togglePause(){
+  
     paused = !paused;
   }
 }
@@ -97,27 +96,24 @@ class Timer extends Component {
 class AddActorCommand implements Command {
 
   Actor actorToAdd = null;
-  Level actorLevel = null;
-
-  void call() {
+  Scene actorLevel = null;
+  
+  void call(){
     actorLevel.addActor(actorToAdd);
   }
 }
 
 class SetFieldReferenceCommand implements Command {
+    
+    Object referenceHolder = null;
+    Field referenceField = null;
+    Object referencedObject = null;
 
-  Object referenceHolder = null;
-  Field referenceField = null;
-  Object referencedObject = null;
-
-  void call() {
-    try {
-      referenceField.set(referenceHolder, referencedObject);
+    void call(){
+      try { referenceField.set(referenceHolder, referencedObject); } 
+      catch(Exception e) {println(e);}
+      
     }
-    catch(Exception e) {
-      println(e);
-    }
-  }
 }
 
 float easeInOutQuad(float x) {
@@ -129,16 +125,20 @@ float easeInSine(float x) {
 }
 
 float easeInOut(float t, float b, float c, float d) {
-  if (t == 0)
-    return b;
-  if ((t /= d / 2) == 2)
-    return b + c;
-  float p = d * (.3f * 1.5f);
-  float a = c;
-  float s = p / 4;
-  if (t < 1)
-    return -.5f * (a * (float) Math.pow(2, 10 * (t -= 1)) * (float) Math.sin((t * d - s) * (2 * (float) Math.PI) / p)) + b;
-  return a * (float) Math.pow(2, -10 * (t -= 1)) * (float) Math.sin((t * d - s) * (2 * (float) Math.PI) / p) * .5f + c + b;
+    if (t == 0)
+      return b;
+    if ((t /= d / 2) == 2)
+      return b + c;
+    float p = d * (.3f * 1.5f);
+    float a = c;
+    float s = p / 4;
+    if (t < 1)
+      return -.5f * (a * (float) Math.pow(2, 10 * (t -= 1)) * (float) Math.sin((t * d - s) * (2 * (float) Math.PI) / p)) + b;
+    return a * (float) Math.pow(2, -10 * (t -= 1)) * (float) Math.sin((t * d - s) * (2 * (float) Math.PI) / p) * .5f + c + b;
+  }
+  
+public static float clamp(float val, float min, float max) {
+    return Math.max(min, Math.min(max, val));
 }
 
 // color constants

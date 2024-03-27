@@ -4,10 +4,16 @@ class Rect extends Component {
   PVector localPosition = new PVector();
   float edgeL, edgeR, edgeT, edgeB;
   float halfW, halfH;
-
-  Rect(Actor parent) {
-
-
+  
+  // draw variables
+  color fill = 0;
+  float fillOpacity = 1; // 0-1 keep normalized
+  color stroke = WHITE;
+  float strokeOpacity = 1;
+  
+  Rect(Actor parent){
+    
+  
     this.parent = parent;
     setPosition(parent.location);
     setSize(TILE_SIZE, TILE_SIZE);
@@ -16,15 +22,15 @@ class Rect extends Component {
 
   Rect(float x, float y, float w, float h) {
 
-
+    
     this.x = x;
     this.y = y;
     setSize(w, h);
     calculateAABB();
   }
-
-  void setPosition(PVector newLocation) {
-
+  
+  void setPosition(PVector newLocation){
+  
     x = newLocation.x + localPosition.x;
     y = newLocation.y + localPosition.y;
   }
@@ -55,16 +61,16 @@ class Rect extends Component {
   }
 
   void update() {
-
+    
     setPosition(parent.location);
     calculateAABB();
   }
 
   void display() {
-
+    
     rectMode(CENTER);
-    noFill();
-    stroke(255);
+    fill(fill, clamp(fillOpacity, 0, 1) * 255);
+    stroke(stroke, clamp(strokeOpacity, 0, 1) * 255);
     rectMode(CENTER);
     rect(x, y, w, h, 10);
   }

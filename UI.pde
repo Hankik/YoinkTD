@@ -1,6 +1,6 @@
-Level createUI(LEVEL_TYPE type) {
+Scene createUI(LEVEL_TYPE type) {
 
-  Level level = new Level(type);
+  Scene level = new Scene(type);
 
   switch (type) {
     // add specific actors for each menu
@@ -58,7 +58,7 @@ Level createUI(LEVEL_TYPE type) {
     loadFromJSONButton.purposeCallback = () -> {
 
       JSONObject json = loadJSONObject("data/save2.json");
-      Level deserializable = createLevel(json);
+      Scene deserializable = createLevel(json);
       levels.add(deserializable);
       deserializable.handleCommands();
       return false;

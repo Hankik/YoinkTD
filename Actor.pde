@@ -2,6 +2,7 @@ abstract class Actor implements Updates, Displays { // abstract means you cannot
 
   String id = UUID.randomUUID().toString();
   PVector location = new PVector(0, 0);
+
   ArrayList<Object> components = new ArrayList(); // do not add non-component types
   ACTOR_STATE actorState = ACTOR_STATE.AWAKE;
 
@@ -58,45 +59,46 @@ abstract class Component implements Updates, Displays {
 
   Component() {
   }
+  
   Component(Actor parent) {
     this.parent = parent;
   }
 
   // this might be useful...
-  void setProperty(String name, Class<?> type, Object value) {
+  //void setProperty(String name, Class<?> type, Object value) {
 
-    try {
-      Field field = getClass().getField(name);
-      if (isUserDefinedClass(type)) {
-        field.set(this, (Class<?>) value);
-      } else {
-        switch (type.getName()) {
-          case "boolean":
-            field.setBoolean(this, (boolean) value);
-          break;
-          case "int":
-            field.setInt(this, (int) value);
-          break;
-        case "float":
-          field.setFloat(this, (float) value);
-          break;
-        case "double":
-          field.setDouble(this, (double) value);
-          break;
-        case "long":
-          field.setLong(this, (long) value);
-          break;
-        default:
-          if (field.isEnumConstant()) field.set(this, (Class<?>) value);
-          // Add additional handling for other types if needed
-          break;
-        }
-      }
-    }
-    catch(NoSuchFieldException | IllegalAccessException e) {
-      println("Failed to add field " + name + ": " + e);
-    }
-  }
+  //  try {
+  //    Field field = getClass().getField(name);
+  //    if (isUserDefinedClass(type)) {
+  //      field.set(this, (Class<?>) value);
+  //    } else {
+  //      switch (type.getName()) {
+  //        case "boolean":
+  //          field.setBoolean(this, (boolean) value);
+  //        break;
+  //        case "int":
+  //          field.setInt(this, (int) value);
+  //        break;
+  //      case "float":
+  //        field.setFloat(this, (float) value);
+  //        break;
+  //      case "double":
+  //        field.setDouble(this, (double) value);
+  //        break;
+  //      case "long":
+  //        field.setLong(this, (long) value);
+  //        break;
+  //      default:
+  //        if (field.isEnumConstant()) field.set(this, (Class<?>) value);
+  //        // Add additional handling for other types if needed
+  //        break;
+  //      }
+  //    }
+  //  }
+  //  catch(NoSuchFieldException | IllegalAccessException e) {
+  //    println("Failed to add field " + name + ": " + e);
+  //  }
+  //}
 }
 
 Actor createActor(String name) {
