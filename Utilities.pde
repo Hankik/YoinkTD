@@ -96,7 +96,7 @@ class Timer extends Component {
 class AddActorCommand implements Command {
 
   Actor actorToAdd = null;
-  Level actorLevel = null;
+  Scene actorLevel = null;
   
   void call(){
     actorLevel.addActor(actorToAdd);

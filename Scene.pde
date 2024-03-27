@@ -5,14 +5,14 @@ enum LEVEL_TYPE {
   HUD,
 }
 
-class Level implements Updates, Displays, Listens {
+class Scene implements Updates, Displays, Listens {
 
   ArrayList<Object> actors = new ArrayList(); // do not add non-actor types
   ArrayList<Command> commands = new ArrayList();
   LEVEL_TYPE type = LEVEL_TYPE.LEVEL;
 
   // CONSTRUCTOR
-  Level(LEVEL_TYPE type) {
+  Scene(LEVEL_TYPE type) {
     this.type = type;
     if (type != LEVEL_TYPE.LEVEL) { println("\nCreated ui scene " + cleanName(this.toString())); return; }
     else println("\nCreated level " + cleanName(this.toString()));
@@ -21,6 +21,8 @@ class Level implements Updates, Displays, Listens {
     Player player = (Player) addActor("Player");
     addActor("TileMap");
     t.heldItem = new WeakReference(player);
+    
+    
   }
 
   void update() {

@@ -11,6 +11,9 @@ class Tile extends Actor {
     PVector startPosition = getGridLocation( new PVector(GRID_X_OFFSET, 0) );
     location = new PVector(startPosition.x, startPosition.y); // many components require its parent have a location so make sure we instantiate location ahead of time
     rect = (Rect) addComponent("Rect");  // like rect ^^
+    rect.fillOpacity = 0;
+    rect.stroke = GREEN;
+    
   }
   
   void update(){
@@ -35,7 +38,7 @@ class TileMap extends Actor {
     rect.setSize(TILE_SIZE * (MAP_WIDTH), TILE_SIZE * MAP_HEIGHT);
     location = PVector.sub(getGridLocation( new PVector(GRID_X_OFFSET + (MAP_WIDTH/2) * TILE_SIZE, (MAP_HEIGHT/2) * TILE_SIZE) ), new PVector(16, 0));
     rect.fill = BLACK;
-    rect.opacity = .25;
+    rect.fillOpacity = .25;
     println( rect.fill);
   
     for (int x = 0; x < MAP_WIDTH; x++) {
@@ -43,8 +46,6 @@ class TileMap extends Actor {
       
         tiles[x][y] = new Tile();
         Tile tile = tiles[x][y];
-        tile.rect.fill = BLUE;
-        tile.rect.opacity = .3;
         
         // populate neighbors
         if (x != 0) tile.neighbors[NEIGHBOR_LEFT] = tiles[x-1][y];

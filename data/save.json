@@ -1,10 +1,11 @@
-{"Level": {
+{"Scene": {
   "actors": {
-    "Tile@2c561be6": {
-      "rect": "4335a010-039f-40a4-b624-e147ae8b3f3a",
-      "components": {"Rect@143c02ae": {
+    "Tile@357080cd": {
+      "rect": "cfe84996-a7fa-4836-879e-7d12f726ea13",
+      "components": {"Rect@2adbcf51": {
         "parent": {},
         "halfW": 16,
+        "fillOpacity": 0,
         "h": 32,
         "edgeT": 0,
         "localPosition": {"PVector": {
@@ -13,42 +14,45 @@
           "z": 0
         }},
         "edgeR": 288,
-        "fill": -1,
+        "fill": 0,
+        "stroke": -6046068,
         "edgeL": 256,
         "halfH": 16,
         "w": 32,
         "x": 272,
         "y": 16,
         "edgeB": 32,
-        "id": "4335a010-039f-40a4-b624-e147ae8b3f3a",
-        "opacity": 1
+        "id": "cfe84996-a7fa-4836-879e-7d12f726ea13",
+        "strokeOpacity": 1
       }},
-      "heldItem": "33b4730b-f098-40da-80d0-1e894df75792",
+      "heldItem": "114b36a4-9eab-4f16-823a-73e9de77c71d",
       "location": {"PVector": {
         "x": 272,
         "y": 16,
         "z": 0
       }},
-      "id": "c06a53c5-ce61-4861-af1b-c83776e0bbc8",
+      "id": "35f63efd-3227-4e52-a342-76877f3f1015",
       "actorState": {"ACTOR_STATE": "AWAKE"}
     },
-    "TileMap@108b3d8e": {
-      "components": {"Rect@3de08598": {
+    "TileMap@1c5ed271": {
+      "components": {"Rect@22d39811": {
         "parent": {},
         "halfW": 384,
+        "fillOpacity": 0.25,
         "h": 736,
         "edgeT": -16,
         "localPosition": {},
         "edgeR": 16,
         "fill": -12893614,
+        "stroke": -1249292,
         "edgeL": -16,
         "halfH": 368,
         "w": 768,
         "x": 0,
         "y": 0,
         "edgeB": 16,
-        "id": "faa989c2-da2f-4d55-a95e-7e748b86e589",
-        "opacity": 0.25
+        "id": "12d30735-915d-4e5d-b6a1-ca04f5103cbc",
+        "strokeOpacity": 1
       }},
       "MAP_HEIGHT": 23,
       "location": {"PVector": {
@@ -56,43 +60,45 @@
         "y": 368,
         "z": 0
       }},
-      "id": "f0aa7a2d-e401-4194-9a3a-e3ed67f4be34",
+      "id": "fd182837-09e7-43f2-ad19-4aa925006034",
       "actorState": {"ACTOR_STATE": "AWAKE"},
       "MAP_WIDTH": 24
     },
-    "Player@4e4c6153": {
+    "Player@74194547": {
+      "rect": "6dde0899-443c-4ba7-93ae-8d96677d17f7",
       "components": {
-        "Rect@f2ffa9e": {
+        "Movement@786b4cf7": {
+          "parent": {},
+          "moveTime": "f83ba037-345a-47a7-8f0d-85a2d3d2a60e",
+          "isMoving": false,
+          "moveAmount": {},
+          "id": "3cdee7f4-c9f6-4573-96a7-2cd7434b94be",
+          "newLocation": {}
+        },
+        "Rect@2d9f8d8f": {
           "parent": {},
           "halfW": 16,
+          "fillOpacity": 0,
           "h": 32,
           "edgeT": 0,
           "localPosition": {},
           "edgeR": 288,
-          "fill": -1,
+          "fill": 0,
+          "stroke": -1249292,
           "edgeL": 256,
           "halfH": 16,
           "w": 32,
           "x": 272,
           "y": 16,
           "edgeB": 32,
-          "id": "94572017-d6d9-4832-b13f-9a1491da91b1",
-          "opacity": 1
-        },
-        "Movement@484dc7a8": {
-          "parent": {},
-          "moveTime": "7d60d7b5-7f6a-4bd4-8c1b-4dc08f72481b",
-          "isMoving": false,
-          "moveAmount": {},
-          "id": "4737a558-ee83-470d-b957-3a3345b2d0fa",
-          "newLocation": {}
+          "id": "6dde0899-443c-4ba7-93ae-8d96677d17f7",
+          "strokeOpacity": 1
         }
       },
-      "m_Movement": "4737a558-ee83-470d-b957-3a3345b2d0fa",
-      "m_Rect": "94572017-d6d9-4832-b13f-9a1491da91b1",
       "location": {},
-      "id": "33b4730b-f098-40da-80d0-1e894df75792",
-      "actorState": {"ACTOR_STATE": "AWAKE"}
+      "id": "114b36a4-9eab-4f16-823a-73e9de77c71d",
+      "actorState": {"ACTOR_STATE": "AWAKE"},
+      "movement": "3cdee7f4-c9f6-4573-96a7-2cd7434b94be"
     }
   },
   "type": {"LEVEL_TYPE": "LEVEL"},

@@ -17,11 +17,11 @@ final float GRID_X_OFFSET = TILE_SIZE * 8;
 // TILE GLOBALS // 
 
 // LEVEL GLOBALS //
-ArrayList<Level> levels = new ArrayList();
+ArrayList<Scene> levels = new ArrayList();
 int currentLevel = 0;
 final int UI_SCENE_AMOUNT = 1;
-Level[] uiScenes = new Level[UI_SCENE_AMOUNT];
-Level hud;
+Scene[] uiScenes = new Scene[UI_SCENE_AMOUNT];
+Scene hud;
 JSONSerializer serializer;
 // LEVEL GLOBALS //
 
@@ -44,15 +44,14 @@ void setup() {
   
   hud = createUI(LEVEL_TYPE.HUD);
   
-  levels.add( new Level(LEVEL_TYPE.LEVEL) );
+  levels.add( new Scene( LEVEL_TYPE.LEVEL) );
 
   serializer = new JSONSerializer();
   JSONObject json = serializer.getContents(levels.get(0));
   saveJSONObject(json, "data/save.json");
   
-  for (Level level : levels) level.handleCommands(); // handle any important commands gathered in deserialization
+  for (Scene level : levels) level.handleCommands(); // handle any important commands gathered in deserialization
   
-  println(applet);
 }
 
 void draw() {
